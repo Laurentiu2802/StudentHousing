@@ -1,0 +1,36 @@
+﻿@page
+@using Logic.Managers;
+@using Logic.Entities;
+@using Logic.DTO;
+@model WebApp.Pages.HousesModel
+@{
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    ViewData["Title"] = "Product Cards";
+}
+<div class="ProductsContent">
+
+    @foreach (House house in Model.houses)
+    {
+        <form method="post">
+            <div class="product-card">
+                <img class="product-card-img" src="data:image/jpg;base64,@System.Convert.ToBase64String(house.HousePhoto)" />
+                <div class="text-center">
+                    <div class="price-and-name">
+                        <span class="name">@house.Address</span>
+                    </div>
+                    <div class="price-and-name">
+                        <span class="price">Rent: $@house.Rent</span>
+                    </div>
+                    
+                    <div class="price-and-name">
+                        <input class="btn btn-outline-primary" type="submit" value="View House" />
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-outline-primary" onclick="location.href='/housedetails?id=@house.HouseID'">@house.Address</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    }
+</div>

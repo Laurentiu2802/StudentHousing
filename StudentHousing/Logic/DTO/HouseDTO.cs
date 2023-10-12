@@ -14,10 +14,10 @@ namespace Logic.DTO
         public int HouseNumber { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
-        public int HouseType { get; set; }
+        public string HouseType { get; set; }
         public int Space { get; set; }
         public bool Furnished { get; set; }
-        public int ContractType { get; set; }
+        public string ContractType { get; set; }
         public double Rent { get; set; }
         public double Deposit { get; set; }
         public byte[] HousePhoto { get; set; }

@@ -10,3 +10,15 @@ C:\Users\Laurentiu.DESKTOP-U2SC38N\source\repos\StudentHousing\Logic\obj\Debug\n
 C:\Users\Laurentiu.DESKTOP-U2SC38N\source\repos\StudentHousing\Logic\obj\Debug\net7.0\refint\Logic.dll
 C:\Users\Laurentiu.DESKTOP-U2SC38N\source\repos\StudentHousing\Logic\obj\Debug\net7.0\Logic.pdb
 C:\Users\Laurentiu.DESKTOP-U2SC38N\source\repos\StudentHousing\Logic\obj\Debug\net7.0\ref\Logic.dll
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\bin\Debug\net7.0\Logic.deps.json
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\bin\Debug\net7.0\Logic.dll
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\bin\Debug\net7.0\Logic.pdb
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\obj\Debug\net7.0\Logic.csproj.AssemblyReference.cache
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\obj\Debug\net7.0\Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\obj\Debug\net7.0\Logic.AssemblyInfoInputs.cache
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\obj\Debug\net7.0\Logic.AssemblyInfo.cs
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\obj\Debug\net7.0\Logic.csproj.CoreCompileInputs.cache
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\obj\Debug\net7.0\Logic.dll
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\obj\Debug\net7.0\refint\Logic.dll
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\obj\Debug\net7.0\Logic.pdb
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\Logic\obj\Debug\net7.0\ref\Logic.dll

@@ -1,0 +1,60 @@
+﻿@page
+@using Logic.Entities;
+@using Logic.Managers;
+@model WebApp.Pages.SignUpModel
+@{
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+}
+<form method="post">
+    <div class="form-control">
+        <div class="boxes">
+            <label class="form-label" asp-for="CustomerForm.FirstName">First Name</label>
+            <input class="form-control" type="text" asp-for="CustomerForm.FirstName" placeholder="First name" />
+            <span asp-validation-for="CustomerForm.FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="boxes">
+            <label class="form-label" asp-for="CustomerForm.LastName">LastName</label>
+            <input class="form-control" type="text" asp-for="CustomerForm.LastName" placeholder="Last Name" />
+            <span asp-validation-for="CustomerForm.LastName" class="text-danger"></span>
+        </div>
+
+        <div class="boxes">
+            <label class="form-label" asp-for="CustomerForm.Email">Email</label>
+            <input class="form-control" type="text" asp-for="CustomerForm.Email" placeholder="Email" />
+            <span asp-validation-for="CustomerForm.Email" class="text-danger"></span>
+        </div>
+
+        <div class="boxes">
+            <label class="form-label" asp-for="CustomerForm.Username">Username</label>
+            <input class="form-control" type="text" asp-for="CustomerForm.Username" placeholder="Username" />
+            <span asp-validation-for="CustomerForm.Username" class="text-danger"></span>
+        </div>
+
+        <div class="boxes">
+            <label class="form-label" asp-for="CustomerForm.Password">Password</label>
+            <input class="form-control" type="password" asp-for="CustomerForm.Password" placeholder="Password" />
+            <span asp-validation-for="CustomerForm.Password" class="text-danger"></span>
+        </div>
+
+        <div class="boxes">
+            <label class="form-label" asp-for="CustomerForm.Address">Address</label>
+            <input class="form-control" type="text" asp-for="CustomerForm.Address" placeholder="Address" />
+            <span asp-validation-for="CustomerForm.Address" class="text-danger"></span>
+        </div>
+
+        <div class="boxes">
+            <label class="form-label" asp-for="CustomerForm.City">City</label>
+            <input class="form-control" type="text" asp-for="CustomerForm.City" placeholder="City" />
+            <span asp-validation-for="CustomerForm.City" class="text-danger"></span>
+        </div>
+
+        <div class="boxes">
+            <label class="form-label" asp-for="CustomerForm.Country">Country</label>
+            <input class="form-control" type="text" asp-for="CustomerForm.Country" placeholder="Country" />
+            <span asp-validation-for="CustomerForm.Country" class="text-danger"></span>
+        </div>
+
+        <button class="btn btn-primary mb-4" type="submit">Create Account</button>
+    </div>
+</form>

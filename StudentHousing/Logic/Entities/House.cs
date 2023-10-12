@@ -14,10 +14,10 @@ namespace Logic.Entities
         private int houseNumber;
         private string address;
         private string city;
-        private HouseType houseType;
+        private string houseType;
         private int space;
         private bool furnished;
-        private ContractType contractType;
+        private string contractType;
         private double rent;
         private double deposit;
         private byte[] housePhoto;
@@ -26,15 +26,15 @@ namespace Logic.Entities
         public int HouseNumber { get => houseNumber; set => houseNumber = value; }
         public string Address { get => address; set => address = value; }
         public string City { get => city; set => city = value; }
-        public HouseType HouseType { get => houseType; set => houseType = value; }
+        public string HouseType { get => houseType; set => houseType = value; }
         public int Space { get => space; set => space = value; }
         public bool Furnished { get => furnished; set => furnished = value; }
-        public ContractType ContractType { get => contractType; set => contractType = value; }
+        public string ContractType { get => contractType; set => contractType = value; }
         public double Rent { get => rent; set => rent = value; }
         public double Deposit { get => deposit; set => deposit = value; }
         public byte[] HousePhoto { get => housePhoto; set => housePhoto = value; }
 
-        public House(int houseID, int houseNumber, string address, string city, HouseType houseType, int space, bool furnished, ContractType contractType, int rent, int deposit, byte[] housePhoto)
+        public House(int houseID, int houseNumber, string address, string city, string houseType, int space, bool furnished, string contractType, int rent, int deposit, byte[] housePhoto)
         {
             this.houseID = houseID;
             this.houseNumber = houseNumber;
@@ -48,7 +48,7 @@ namespace Logic.Entities
             this.deposit = deposit;
             this.HousePhoto = housePhoto;
         }
-        public House(int houseNumber, string address, string city, HouseType houseType, int space, bool furnished, ContractType contractType, int rent, int deposit, byte[] housePhoto)
+        public House(int houseNumber, string address, string city, string houseType, int space, bool furnished, string contractType, int rent, int deposit, byte[] housePhoto)
         {
             this.houseNumber = houseNumber;
             this.address = address;
@@ -68,10 +68,10 @@ namespace Logic.Entities
             this.HouseNumber = houseDTO.HouseNumber;
             this.address = houseDTO.Address;
             this.city = houseDTO.City;
-            this.houseType = (HouseType)houseDTO.HouseType;
+            this.houseType = houseDTO.HouseType;
             this.space = houseDTO.Space;
             this.furnished = houseDTO.Furnished;
-            this.contractType = (ContractType)houseDTO.ContractType;
+            this.contractType = houseDTO.ContractType;
             this.rent = houseDTO.Rent;
             this.deposit = houseDTO.Deposit;
             this.housePhoto = houseDTO.HousePhoto;
@@ -84,10 +84,10 @@ namespace Logic.Entities
                 HouseNumber = this.HouseNumber,
                 Address = this.Address,
                 City = this.City,
-                HouseType = Convert.ToInt32(this.HouseType),
+                HouseType = this.HouseType,
                 Space = this.Space,
                 Furnished = this.Furnished,
-                ContractType = Convert.ToInt32(this.ContractType),
+                ContractType = this.ContractType,
                 Rent = this.rent,
                 Deposit = this.deposit,
                 HousePhoto = this.housePhoto,

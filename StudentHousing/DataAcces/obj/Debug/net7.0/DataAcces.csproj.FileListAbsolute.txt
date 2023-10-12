@@ -13,3 +13,18 @@ C:\Users\Laurentiu.DESKTOP-U2SC38N\source\repos\StudentHousing\DataAcces\obj\Deb
 C:\Users\Laurentiu.DESKTOP-U2SC38N\source\repos\StudentHousing\DataAcces\obj\Debug\net7.0\refint\DataAcces.dll
 C:\Users\Laurentiu.DESKTOP-U2SC38N\source\repos\StudentHousing\DataAcces\obj\Debug\net7.0\DataAcces.pdb
 C:\Users\Laurentiu.DESKTOP-U2SC38N\source\repos\StudentHousing\DataAcces\obj\Debug\net7.0\ref\DataAcces.dll
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\bin\Debug\net7.0\DataAcces.deps.json
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\bin\Debug\net7.0\DataAcces.dll
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\bin\Debug\net7.0\DataAcces.pdb
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\bin\Debug\net7.0\Logic.dll
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\bin\Debug\net7.0\Logic.pdb
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\obj\Debug\net7.0\DataAcces.csproj.AssemblyReference.cache
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\obj\Debug\net7.0\DataAcces.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\obj\Debug\net7.0\DataAcces.AssemblyInfoInputs.cache
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\obj\Debug\net7.0\DataAcces.AssemblyInfo.cs
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\obj\Debug\net7.0\DataAcces.csproj.CoreCompileInputs.cache
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\obj\Debug\net7.0\DataAcces.csproj.CopyComplete
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\obj\Debug\net7.0\DataAcces.dll
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\obj\Debug\net7.0\refint\DataAcces.dll
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\obj\Debug\net7.0\DataAcces.pdb
+C:\Users\Laurentiu.DESKTOP-U2SC38N\Desktop\Student Housing\semester-2-individual\StudentHousing\DataAcces\obj\Debug\net7.0\ref\DataAcces.dll

@@ -1,0 +1,25 @@
+﻿@page
+@using Logic.DTO;
+@using Logic.Entities;
+@using Logic.Interfaces;
+@using Logic.Managers
+@model WebApp.Pages.HouseDetailsModel
+@{
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+
+    House house = Model.GetHouse();
+
+    <div class="HousePageForm">
+        <h2 class="Address">@house.Address</h2>
+        <img class="house-card-img" src="@house.HousePhoto" />
+        <h6 class="city">City: @house.City</h6>
+        <h6 class="houseType">House Type: @house.HouseType</h6>
+        <h6 class="space">Space: @house.Space</h6>
+        <h6 class="furnished">Furnished: @house.Furnished</h6>
+        <h6 class="contract">Contract Type: @house.ContractType</h6>
+        <h6 class="rent">Rent : @house.Rent</h6>
+        <h6 class="deposit">Deposit: @house.Deposit</h6>
+
+
+    </div>
+}

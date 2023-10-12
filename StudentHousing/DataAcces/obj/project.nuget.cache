@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6+SCEKZSvBo/JUVJauaOMkhrk/OrqTglRzTp54y3QwNBKlTEDpsv3mp5Dk7aMmz99UERzJ7nv19Ot17rB1xyBg==",
+  "dgSpecHash": "YBiBVYBeVNjulaO8WGTewR0qfB4ZfXEH1HErLa3QMb37EAvuOx8gesOi8j56nxH1xki8QWVID3mx5ILnltuQ+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\source\\repos\\StudentHousing\\DataAcces\\DataAcces.csproj",
+  "projectFilePath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student Housing\\semester-2-individual\\StudentHousing\\DataAcces\\DataAcces.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

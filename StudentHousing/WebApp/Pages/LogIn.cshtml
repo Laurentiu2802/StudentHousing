@@ -1,0 +1,30 @@
+﻿@page
+@using Logic.Entities;
+@using Logic.Managers;
+@model WebApp.Pages.LogInModel
+@{
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+    ViewData["Title"] = "Log In";
+}
+
+<form method="post">
+    <div class="form-control">
+        <div>
+            <label class="form-label" asp-for="CustomerForm.Email">Email</label>
+            <input class="form-control" type="input" asp-for="CustomerForm.Email" placeholder="Your email" />
+            <span asp-validation-for="CustomerForm.Email" class="text-danger"></span>
+        </div>
+
+        <div class="">
+            <label class="form-label" asp-for="CustomerForm.Password">Password</label>
+            <input class="form-control" type="password" asp-for="CustomerForm.Password" placeholder="Your password" />
+            <span asp-validation-for="CustomerForm.Password" class="text-danger"></span>
+        </div>
+        <button class="btn btn-primary mb-4" type="submit">Log In</button>
+        <p class="text-danger">@Model.ErrorMessage</p>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="redirect-link">
+            <a href="SignUpPage">You don't have an account? Create one here</a>
+        </div>
+    </div>
+</form>

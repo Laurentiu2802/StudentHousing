@@ -26,7 +26,7 @@ namespace DataAcces
                     cmd.Parameters.AddWithValue("city", houseDTO.City);
                     cmd.Parameters.AddWithValue("houseType", houseDTO.HouseType);
                     cmd.Parameters.AddWithValue("space", houseDTO.Space);
-                    cmd.Parameters.AddWithValue("furnished", houseDTO.Furnished);
+                    cmd.Parameters.AddWithValue("furnished", Convert.ToInt32(houseDTO.Furnished));
                     cmd.Parameters.AddWithValue("contractType", houseDTO.ContractType);
                     cmd.Parameters.AddWithValue("rent", houseDTO.Rent);
                     cmd.Parameters.AddWithValue("deposit", houseDTO.Deposit);
@@ -63,10 +63,10 @@ namespace DataAcces
                             HouseNumber = Convert.ToInt32(dr["houseNumber"]),
                             Address = dr["address"].ToString(),
                             City = dr["city"].ToString(),
-                            HouseType = Convert.ToInt32(dr["houseType"]),
+                            HouseType = dr["houseType"].ToString(),
                             Space = Convert.ToInt32(dr["space"]),
                             Furnished = Convert.ToBoolean(dr["furnished"]),
-                            ContractType = Convert.ToInt32(dr["contractType"]),
+                            ContractType = dr["contractType"].ToString(),
                             Rent = Convert.ToDouble(dr["rent"]),
                             Deposit = Convert.ToDouble(dr["deposit"]),
                             HousePhoto = (byte[])dr["housePhoto"]
@@ -104,10 +104,10 @@ namespace DataAcces
                             HouseNumber = Convert.ToInt32(dr["houseNumber"]),
                             Address = dr["address"].ToString(),
                             City = dr["city"].ToString(),
-                            HouseType = Convert.ToInt32(dr["houseType"]),
+                            HouseType = dr["houseType"].ToString(),
                             Space = Convert.ToInt32(dr["space"]),
                             Furnished = Convert.ToBoolean(dr["furnished"]),
-                            ContractType = Convert.ToInt32(dr["contractType"]),
+                            ContractType = dr["contractType"].ToString(),
                             Rent = Convert.ToDouble(dr["rent"]),
                             Deposit = Convert.ToDouble(dr["deposit"]),
                             HousePhoto = (byte[])dr["housePhoto"]

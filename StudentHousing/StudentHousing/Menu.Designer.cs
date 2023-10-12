@@ -34,8 +34,6 @@
             cbFurnished = new ComboBox();
             btnEditHouse = new Button();
             houseImage = new PictureBox();
-            cbType = new ComboBox();
-            cbContract = new ComboBox();
             tbDeposit = new TextBox();
             tbRent = new TextBox();
             tbSpace = new TextBox();
@@ -54,6 +52,8 @@
             tbHouseNumber = new TextBox();
             label1 = new Label();
             tabPage2 = new TabPage();
+            tbHouseType = new TextBox();
+            tbContractType = new TextBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)houseImage).BeginInit();
@@ -71,12 +71,12 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(tbContractType);
+            tabPage1.Controls.Add(tbHouseType);
             tabPage1.Controls.Add(btnPhoto);
             tabPage1.Controls.Add(cbFurnished);
             tabPage1.Controls.Add(btnEditHouse);
             tabPage1.Controls.Add(houseImage);
-            tabPage1.Controls.Add(cbType);
-            tabPage1.Controls.Add(cbContract);
             tabPage1.Controls.Add(tbDeposit);
             tabPage1.Controls.Add(tbRent);
             tabPage1.Controls.Add(tbSpace);
@@ -141,23 +141,6 @@
             houseImage.Size = new Size(170, 110);
             houseImage.TabIndex = 24;
             houseImage.TabStop = false;
-            // 
-            // cbType
-            // 
-            cbType.FormattingEnabled = true;
-            cbType.Location = new Point(145, 107);
-            cbType.Name = "cbType";
-            cbType.Size = new Size(121, 23);
-            cbType.TabIndex = 23;
-            cbType.SelectedIndexChanged += cbType_SelectedIndexChanged;
-            // 
-            // cbContract
-            // 
-            cbContract.FormattingEnabled = true;
-            cbContract.Location = new Point(145, 194);
-            cbContract.Name = "cbContract";
-            cbContract.Size = new Size(121, 23);
-            cbContract.TabIndex = 22;
             // 
             // tbDeposit
             // 
@@ -323,6 +306,20 @@
             tabPage2.Text = "Applications Manager";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tbHouseType
+            // 
+            tbHouseType.Location = new Point(145, 107);
+            tbHouseType.Name = "tbHouseType";
+            tbHouseType.Size = new Size(121, 23);
+            tbHouseType.TabIndex = 28;
+            // 
+            // tbContractType
+            // 
+            tbContractType.Location = new Point(145, 194);
+            tbContractType.Name = "tbContractType";
+            tbContractType.Size = new Size(121, 23);
+            tbContractType.TabIndex = 29;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -360,11 +357,11 @@
         private TextBox tbSpace;
         private TextBox tbCity;
         private TextBox tbAddress;
-        private ComboBox cbContract;
-        private ComboBox cbType;
         private Button btnEditHouse;
         private PictureBox houseImage;
         private ComboBox cbFurnished;
         private Button btnPhoto;
+        private TextBox tbContractType;
+        private TextBox tbHouseType;
     }
 }

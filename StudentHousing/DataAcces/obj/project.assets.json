@@ -2025,11 +2025,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\source\\repos\\StudentHousing\\DataAcces\\DataAcces.csproj",
+      "projectUniqueName": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student Housing\\semester-2-individual\\StudentHousing\\DataAcces\\DataAcces.csproj",
       "projectName": "DataAcces",
-      "projectPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\source\\repos\\StudentHousing\\DataAcces\\DataAcces.csproj",
+      "projectPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student Housing\\semester-2-individual\\StudentHousing\\DataAcces\\DataAcces.csproj",
       "packagesPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\source\\repos\\StudentHousing\\DataAcces\\obj\\",
+      "outputPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student Housing\\semester-2-individual\\StudentHousing\\DataAcces\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2051,8 +2051,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\source\\repos\\StudentHousing\\Logic\\Logic.csproj": {
-              "projectPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\source\\repos\\StudentHousing\\Logic\\Logic.csproj"
+            "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student Housing\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj": {
+              "projectPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student Housing\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj"
             }
           }
         }
