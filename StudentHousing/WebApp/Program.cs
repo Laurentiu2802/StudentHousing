@@ -10,7 +10,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.Cookie.SameSite = SameSiteMode.None;
         options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
         options.Cookie.IsEssential = true;
-        options.LoginPath = new PathString("/MyAccountPage");
+        options.LoginPath = new PathString("/LogIn");
     }
 );
 builder.Services.AddSession(options =>

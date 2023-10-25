@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xYf/Zk25yTGQsEddRNG2g4fQTjMFPHPlk1Ns47IEqsU=",
+  "Hash": "iZsnbShM0Zjy9XF5wjWqV3cXC3ysJSC5zqMqSR5mRJc=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student Housing\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\css\\style.css",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student Housing\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student Housing\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\favicon.ico",
