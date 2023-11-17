@@ -30,6 +30,8 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            tbContractType = new TextBox();
+            tbHouseType = new TextBox();
             btnPhoto = new Button();
             cbFurnished = new ComboBox();
             btnEditHouse = new Button();
@@ -52,8 +54,6 @@
             tbHouseNumber = new TextBox();
             label1 = new Label();
             tabPage2 = new TabPage();
-            tbHouseType = new TextBox();
-            tbContractType = new TextBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)houseImage).BeginInit();
@@ -103,6 +103,20 @@
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
             // 
+            // tbContractType
+            // 
+            tbContractType.Location = new Point(145, 194);
+            tbContractType.Name = "tbContractType";
+            tbContractType.Size = new Size(121, 23);
+            tbContractType.TabIndex = 29;
+            // 
+            // tbHouseType
+            // 
+            tbHouseType.Location = new Point(145, 107);
+            tbHouseType.Name = "tbHouseType";
+            tbHouseType.Size = new Size(121, 23);
+            tbHouseType.TabIndex = 28;
+            // 
             // btnPhoto
             // 
             btnPhoto.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -117,7 +131,7 @@
             // cbFurnished
             // 
             cbFurnished.FormattingEnabled = true;
-            cbFurnished.Items.AddRange(new object[] { "Furnished", "Unfurnished" });
+            cbFurnished.Items.AddRange(new object[] { "Choose from this list", "Unfurnished", "Furnished" });
             cbFurnished.Location = new Point(145, 165);
             cbFurnished.Name = "cbFurnished";
             cbFurnished.Size = new Size(121, 23);
@@ -305,20 +319,6 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Applications Manager";
             tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tbHouseType
-            // 
-            tbHouseType.Location = new Point(145, 107);
-            tbHouseType.Name = "tbHouseType";
-            tbHouseType.Size = new Size(121, 23);
-            tbHouseType.TabIndex = 28;
-            // 
-            // tbContractType
-            // 
-            tbContractType.Location = new Point(145, 194);
-            tbContractType.Name = "tbContractType";
-            tbContractType.Size = new Size(121, 23);
-            tbContractType.TabIndex = 29;
             // 
             // Menu
             // 

@@ -34,7 +34,7 @@ namespace StudentHousing
             {
                 lbHouse.Items.Add(house);
             }
-            
+
         }
 
         public void ClearAllBoxes()
@@ -62,14 +62,14 @@ namespace StudentHousing
 
         public void AddHouse()
         {
-            if (cbFurnished.SelectedIndex == 0)
+            if (cbFurnished.SelectedIndex == 1)
             {
                 House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace.Text), true, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
                 houseManager.AddHouse(house.HouseToHouseDTO());
                 RefreshHouseList();
                 ClearAllBoxes();
             }
-            else if (cbFurnished.SelectedIndex == 1)
+            else if (cbFurnished.SelectedIndex == 2)
             {
                 House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace), false, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
                 houseManager.AddHouse(house.HouseToHouseDTO());
