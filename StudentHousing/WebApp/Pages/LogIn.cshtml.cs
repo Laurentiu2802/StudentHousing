@@ -19,6 +19,8 @@ namespace WebApp.Pages
         public CustomerDTO CustomerForm { get; set; }
         [BindProperty]
         public string ErrorMessage { get; set; }
+        [BindProperty]
+        public string ReturnUrl { get; set; }
 
         private readonly CustomerManager customerManager;
 
@@ -30,6 +32,12 @@ namespace WebApp.Pages
         }
         public void OnGet()
         {
+            ReturnUrl = Request.Query["ReturnUrl"];
+
+            //if (!string.IsNullOrEmpty(returnUrl))
+            //{
+            //    Response.Redirect(returnUrl);
+            //}
         }
 
         public async Task<IActionResult> OnPost()
@@ -52,8 +60,16 @@ namespace WebApp.Pages
                     var props = new AuthenticationProperties();
 
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, props);
+                    if(ReturnUrl != null)
+                    {
+                        return RedirectToPage(ReturnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToPage("Index");
 
-                    return RedirectToPage("Index");
+                    }
+                    //return RedirectToPage("Index");
                 }
                 else
                 {

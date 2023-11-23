@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bzieuwWnfLSQjQX+5vJbdMnxLtwRzGsNL8CDHyeUWfOyB6MEx7OxSmkcA5txXwgqfHPEB0MS/vxA2vGufUIuLA==",
+  "dgSpecHash": "/yEwKh+fdI1HJuDlyHxgiQQQVEdHorz1boBDXg+QTJvyea1Bq6CGG2kAQ3f2P2Vmg3CSRxQB5inmYafJgy88bg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student Housing\\semester-2-individual\\StudentHousing\\WebApp\\WebApp.csproj",
+  "projectFilePath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\WebApp\\WebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
