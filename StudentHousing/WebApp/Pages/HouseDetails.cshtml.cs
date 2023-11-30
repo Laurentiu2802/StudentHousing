@@ -4,32 +4,41 @@ using Logic.Entities;
 using Logic.Managers;
 using DataAcces;
 using Logic.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Pages
 {
+    [Authorize]
     public class HouseDetailsModel : PageModel
     {
-        private int houseID = 0;
-        private House house;
-        HouseManager houseManager;
-        private HouseRepository houseRepository = new HouseRepository();
-        public void OnGet(int id)
-        {
-            houseID = id;
-        }
+        private HouseManager houseManager;
 
-        public House GetHouse()
+        [BindProperty]
+        public HouseDTO HouseDTO { get; set; }
+        [BindProperty]
+        CustomerDTO CustomerDTO { get; set; }
+
+        private readonly HouseManager _houseManager;
+        private readonly CustomerManager _customerManager;
+
+        public HouseDetailsModel(HouseManager houseManager, CustomerManager customerManager)
         {
-            houseManager = new HouseManager(houseRepository);
-            foreach(House house in houseManager.GetAllHouses())
+
+            this._houseManager = houseManager;
+            this._customerManager = customerManager;
+        }
+        public void OnGet()
+        {
+            HouseDTO = _houseManager.GetHouseByID(HttpContext.Session.GetInt32("houseID").Value).HouseToHouseDTO();
+            string? id = User?.FindFirst("personID")?.Value;
+
+            if(id == null)
             {
-                if(house.HouseID == houseID)
-                {
-                    this.house = house;
-                }
+                CustomerDTO = _customerManager.GetCustomerByID(Convert.ToInt32("personID")).CustomerToCustomerDTO();
             }
-            return house;
 
         }
+
+
     }
 }

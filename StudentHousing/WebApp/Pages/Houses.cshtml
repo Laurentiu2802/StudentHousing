@@ -13,7 +13,11 @@
     {
         <form method="post">
             <div class="product-card">
-                <img class="product-card-img" src="data:image/jpg;base64,@System.Convert.ToBase64String(house.HousePhoto)" />
+                <div class="product-card-img">
+                    <button type="submit" class="framed">
+                        <img class="product-card-img" src="data:image/jpg;base64,@System.Convert.ToBase64String(house.HousePhoto)" />
+                    </button>
+                </div>
                 <div class="text-center">
                     <div class="price-and-name">
                         <span class="name">@house.Address</span>
@@ -21,13 +25,6 @@
                     <div class="price-and-name">
                         <span class="price">Rent: $@house.Rent</span>
                     </div>
-                    
-                    <div class="price-and-name">
-                        <input class="btn btn-outline-primary" type="submit" value="View House" />
-                    </div>
-                    @*<div class="text-center">
-                        <button class="btn btn-outline-primary" onclick="location.href='/housedetails?id=@house.HouseID'">@house.Address</button>
-                    </div>*@
 
                 </div>
             </div>

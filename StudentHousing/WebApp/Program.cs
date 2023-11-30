@@ -1,3 +1,5 @@
+using DataAcces;
+using Logic.Managers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,9 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
     options.Cookie.HttpOnly = true;
 });
+
+builder.Services.AddScoped<HouseManager>();
+builder.Services.AddSingleton<IHouseRepository, HouseRepository>();
 
 var app = builder.Build();
 

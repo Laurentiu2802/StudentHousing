@@ -9,7 +9,6 @@ using DataAcces;
 
 namespace WebApp.Pages
 {
-    [Authorize]
     public class HousesModel : PageModel
     {
         private HouseManager houseManager;
@@ -26,6 +25,20 @@ namespace WebApp.Pages
         }
         public void OnGet()
         {
+
+        }
+
+        public IActionResult OnPost()
+        {
+            if (HouseDTO.HouseID != -1)
+            {
+                HttpContext.Session.SetInt32("houseID", HouseDTO.HouseID);
+                return RedirectToPage("/HouseDetails");
+            }
+            else
+            {
+                return Page();
+            }
         }
 
         public IEnumerable<House> houses => houseManager.GetAllHouses();
