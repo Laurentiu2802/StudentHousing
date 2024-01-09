@@ -18,8 +18,8 @@ namespace DataAcces
             {
                 using (SqlConnection conn = InitializeConection())
                 {
-                    const string sql = "INSERT INTO s2_House ([houseNumber], [address], [city], [houseType], [space], [furnished], [contractType], [rent], [deposit], [housePhoto])" +
-                        "VALUES (@houseNumber, @address, @city, @houseType, @space, @furnished, @contractType, @rent, @deposit, @housePhoto);";
+                    const string sql = "INSERT INTO s2_House ([houseNumber], [address], [city], [houseType], [space], [furnished], [contractType], [rent], [deposit], [housePhoto],[furnishing])" +
+                        "VALUES (@houseNumber, @address, @city, @houseType, @space, @furnished, @contractType, @rent, @deposit, @housePhoto,@furnished);";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("houseNumber", houseDTO.HouseNumber);
                     cmd.Parameters.AddWithValue("address", houseDTO.Address);
@@ -49,7 +49,7 @@ namespace DataAcces
             {
                 using (SqlConnection conn = InitializeConection())
                 {
-                    string sql = "SELECT * FROM s2_House";
+                    string sql = "SELECT * FROM s2_House WHERE houseID = @houseID";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@houseID", id);
                     conn.Open();
@@ -65,7 +65,7 @@ namespace DataAcces
                             City = dr["city"].ToString(),
                             HouseType = dr["houseType"].ToString(),
                             Space = Convert.ToInt32(dr["space"]),
-                            Furnished = Convert.ToBoolean(dr["furnished"]),
+                            Furnished = Convert.ToBoolean(dr["furnishing"]),
                             ContractType = dr["contractType"].ToString(),
                             Rent = Convert.ToDouble(dr["rent"]),
                             Deposit = Convert.ToDouble(dr["deposit"]),

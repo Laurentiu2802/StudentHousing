@@ -19,13 +19,13 @@ namespace WebApp.Pages
         CustomerDTO CustomerDTO { get; set; }
 
         private readonly HouseManager _houseManager;
-        private readonly CustomerManager _customerManager;
+        private readonly CustomerManager customerManager;
 
         public HouseDetailsModel(HouseManager houseManager, CustomerManager customerManager)
         {
 
             this._houseManager = houseManager;
-            this._customerManager = customerManager;
+            this.customerManager = customerManager;
         }
         public void OnGet()
         {
@@ -34,9 +34,15 @@ namespace WebApp.Pages
 
             if(id == null)
             {
-                CustomerDTO = _customerManager.GetCustomerByID(Convert.ToInt32("personID")).CustomerToCustomerDTO();
+                CustomerDTO = customerManager.GetCustomerByID(Convert.ToInt32("personID")).CustomerToCustomerDTO();
             }
 
+        }
+
+        public IActionResult OnPost()
+        {
+
+            return null;
         }
 
 

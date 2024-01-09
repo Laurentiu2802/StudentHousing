@@ -14,6 +14,7 @@
         <form method="post">
             <div class="product-card">
                 <div class="product-card-img">
+                    <input asp-for="HouseDTO.HouseID" type="hidden" value="@house.HouseID" />
                     <button type="submit" class="framed">
                         <img class="product-card-img" src="data:image/jpg;base64,@System.Convert.ToBase64String(house.HousePhoto)" />
                     </button>

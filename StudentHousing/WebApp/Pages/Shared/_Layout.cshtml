@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@* @page
+@model WebApp.Pages.LogInModel *@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,10 +25,17 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/LogIn">Log In</a>
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-page="/LogIn">Log In</a>
+                            }
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/SignUp">Sign Up</a>
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-page="/SignUp">Sign Up</a>
+                            }
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Houses">Houses</a>

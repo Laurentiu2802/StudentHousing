@@ -1,28 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Tests\\Tests.csproj": {}
+    "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj": {
+    "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj",
+        "projectUniqueName": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj",
         "projectName": "Logic",
-        "projectPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj",
-        "packagesPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Logic\\obj\\",
+        "projectPath": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj",
+        "packagesPath": "C:\\Users\\Laurentiu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Logic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Laurentiu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -42,8 +42,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "imports": [
             "net461",
             "net462",
@@ -60,29 +60,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Tests\\Tests.csproj": {
+    "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Tests\\Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Tests\\Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Tests\\Tests.csproj",
         "projectName": "Tests",
-        "projectPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Tests\\Tests.csproj",
-        "packagesPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Tests\\obj\\",
+        "projectPath": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Tests\\Tests.csproj",
+        "packagesPath": "C:\\Users\\Laurentiu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Laurentiu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -90,11 +90,11 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj": {
-                "projectPath": "C:\\Users\\Laurentiu.DESKTOP-U2SC38N\\Desktop\\Student housing\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj"
+              "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj": {
+                "projectPath": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\Logic\\Logic.csproj"
               }
             }
           }
@@ -106,8 +106,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "MSTest.TestAdapter": {
               "target": "Package",
@@ -146,7 +146,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

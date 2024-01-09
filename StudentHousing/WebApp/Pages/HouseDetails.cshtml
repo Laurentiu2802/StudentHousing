@@ -14,11 +14,16 @@
         <h6 class="city">City: @Model.HouseDTO.City</h6>
     <h6 class="houseType">House Type: @Model.HouseDTO.HouseType</h6>
     <h6 class="space">Space: @Model.HouseDTO.Space</h6>
-        <h6 class="furnished">Furnished: @Model.HouseDTO.Furnished ? "Yes" : "No"</h6>
+        <h6 class="furnished">Furnished: @(Model.HouseDTO.Furnished ? "Yes" : "No")</h6>
     <h6 class="contract">Contract Type: @Model.HouseDTO.ContractType</h6>
         <h6 class="rent">Rent : @Model.HouseDTO.Rent</h6>
         <h6 class="deposit">Deposit: @Model.HouseDTO.Deposit</h6>
+        <div class="text-center">
+            <button type="submit">Apply</button>
+              @*<input asp-for="HouseDTO.HouseID" type="hidden" value="@house.HouseID" />*@
 
+        </div>
+        
 
     </div>
 }

@@ -1,4 +1,5 @@
 using DataAcces;
+using Logic.Interfaces;
 using Logic.Managers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
@@ -24,6 +25,9 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddScoped<HouseManager>();
 builder.Services.AddSingleton<IHouseRepository, HouseRepository>();
+
+builder.Services.AddScoped<CustomerManager>();
+builder.Services.AddSingleton<ICustomer, CustomerRepository>();
 
 var app = builder.Build();
 
