@@ -29,6 +29,9 @@ builder.Services.AddSingleton<IHouseRepository, HouseRepository>();
 builder.Services.AddScoped<CustomerManager>();
 builder.Services.AddSingleton<ICustomer, CustomerRepository>();
 
+builder.Services.AddScoped<RequestManager>();
+builder.Services.AddSingleton<IRequest, RequestRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

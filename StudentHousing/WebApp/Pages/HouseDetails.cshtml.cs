@@ -5,6 +5,7 @@ using Logic.Managers;
 using DataAcces;
 using Logic.DTO;
 using Microsoft.AspNetCore.Authorization;
+using Logic.Enums;
 
 namespace WebApp.Pages
 {
@@ -20,12 +21,14 @@ namespace WebApp.Pages
 
         private readonly HouseManager _houseManager;
         private readonly CustomerManager customerManager;
+        private readonly RequestManager requestManager;
 
-        public HouseDetailsModel(HouseManager houseManager, CustomerManager customerManager)
+        public HouseDetailsModel(HouseManager houseManager, CustomerManager customerManager, RequestManager requestManager)
         {
 
             this._houseManager = houseManager;
             this.customerManager = customerManager;
+            this.requestManager = requestManager;
         }
         public void OnGet()
         {
@@ -41,8 +44,17 @@ namespace WebApp.Pages
 
         public IActionResult OnPost()
         {
+            string? customerID = User?.FindFirst("personID")?.Value;
 
-            return null;
+            CustomerDTO = customerManager.GetCustomerByID(Convert.ToInt32(customerID)).CustomerToCustomerDTO();
+            HouseDTO = _houseManager.GetHouseByID(HttpContext.Session.GetInt32("houseID").Value).HouseToHouseDTO();
+            requestManager.AddRequest(new RequestDTO
+            {
+                CustomerDTO = CustomerDTO,
+                HouseDTO = HouseDTO
+            }
+                );
+            return RedirectToPage("Index");
         }
 
 

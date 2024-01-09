@@ -27,7 +27,7 @@ namespace DataAcces
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("houseID", requestDTO.HouseDTO.HouseID);
                     cmd.Parameters.AddWithValue("customerID", requestDTO.CustomerDTO.PersonID);
-                    cmd.Parameters.AddWithValue("status", requestDTO.Status);
+                    cmd.Parameters.AddWithValue("status", 0);
                     conn.Open();
                     cmd.ExecuteNonQuery();
 

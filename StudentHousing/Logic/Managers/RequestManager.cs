@@ -24,15 +24,24 @@ namespace Logic.Managers
             return request.AddRequest(requestDTO);
         }
 
-        public List<Request> GetAllHouses()
+        public List<Request> GetRequestsByCustomerID(int id)
         {
-            List<House> houses = new List<House>();
-            foreach (HouseDTO houseDTO in houseRepository.GetAllHouses())
+            List<Request> requestList= new List<Request>();
+            foreach (RequestDTO requestDTO in request.GetRequestsByCustomerID(id))
             {
-                houses.Add(new House(houseDTO));
+                requestList.Add(new Request(requestDTO));
             }
-            return houses;
+            return requestList;
         }
 
+        public List<Request> GetRequestsByHouseID(int id)
+        {
+            List<Request> requestList = new List<Request>();
+            foreach (RequestDTO requestDTO in request.GetRequestsByHouseID(id))
+            {
+                requestList.Add(new Request(requestDTO));
+            }
+            return requestList;
+        }
     }
 }
