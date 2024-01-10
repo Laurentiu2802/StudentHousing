@@ -42,14 +42,13 @@ namespace DataAcces
 
         public List<RequestDTO> GetRequestsByCustomerID(int id)
         {
-            bool passed;
             List<RequestDTO> requestList = new List<RequestDTO>();
 
             try
             {
                 using (SqlConnection conn = InitializeConection())
                 {
-                    string sql = "SELECT * FROM s2_Request r INNER JOIN s2_Customer c ON r.personID = c.customerID INNER JOIN s2_House h ON r.houseID = h.houseID WHERE r.customerID = @customerID";
+                    string sql = "SELECT * FROM s2_Request r INNER JOIN s2_Customer c ON r.customerID = c.customerID INNER JOIN s2_House h ON r.houseID = h.houseID INNER JOIN s2_Person p ON c.customerID = p.personID WHERE r.customerID = @customerID";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@customerID", id);
                     conn.Open();
@@ -90,21 +89,14 @@ namespace DataAcces
                         };
                         requestList.Add(requestDTO);
                     }
-                    passed = true;
+                    return requestList;
                 }
             }
             catch (Exception ex)
             {
-                passed = false;
+                throw new NotImplementedException();
             }
-            if (passed = true)
-            {
-                return requestList;
-            }
-            else
-            {
-                return null;
-            }
+
         }
 
         public List<RequestDTO> GetRequestsByHouseID(int id)

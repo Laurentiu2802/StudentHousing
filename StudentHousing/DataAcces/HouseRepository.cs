@@ -124,6 +124,49 @@ namespace DataAcces
             }
         }
 
+        public List<HouseDTO> GetAllHousesByID(int id)
+        {
+            List<HouseDTO> houseList = new List<HouseDTO>();
+
+            try
+            {
+                using (SqlConnection conn = InitializeConection())
+                {
+                    string sql = "SELECT * FROM s2_House WHERE houseID = @houseID";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("@houseID", id);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        var houseDTO = new HouseDTO
+                        {
+                            HouseID = Convert.ToInt32(dr["houseID"]),
+                            HouseNumber = Convert.ToInt32(dr["houseNumber"]),
+                            Address = dr["address"].ToString(),
+                            City = dr["city"].ToString(),
+                            HouseType = dr["houseType"].ToString(),
+                            Space = Convert.ToInt32(dr["space"]),
+                            Furnished = Convert.ToBoolean(dr["furnished"]),
+                            ContractType = dr["contractType"].ToString(),
+                            Rent = Convert.ToDouble(dr["rent"]),
+                            Deposit = Convert.ToDouble(dr["deposit"]),
+                            HousePhoto = (byte[])dr["housePhoto"]
+                        };
+                        houseList.Add(houseDTO);
+                    }
+                    return houseList;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public bool UpdateHouse(HouseDTO houseDTO)
         {
             try

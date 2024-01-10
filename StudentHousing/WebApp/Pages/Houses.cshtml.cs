@@ -17,10 +17,11 @@ namespace WebApp.Pages
         [BindProperty]
         public HouseDTO HouseDTO { get; set; }
 
-        public HousesModel()
+        private readonly HouseManager _houseManager;
+
+        public HousesModel(HouseManager houseManager)
         {
-            HouseRepository houseRepository = new HouseRepository();
-            houseManager = new HouseManager(houseRepository);
+            this._houseManager = houseManager;
 
         }
         public void OnGet()

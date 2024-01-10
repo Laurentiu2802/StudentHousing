@@ -1,4 +1,39 @@
 ﻿@page
+@using Logic.Managers;
+@using Logic.Entities;
+@using Logic.DTO;
 @model WebApp.Pages.MyApplicationsModel
 @{
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    ViewData["Title"] = "Product Cards";
 }
+
+<div class="ProductsContent">
+
+    @foreach (Request request in Model.requestList)
+    {
+        <form method="post">
+            <div class="product-card">
+                <div class="product-card-img">
+                    <input asp-for="HouseDTO.HouseID" type="hidden" value="@request.Customer.PersonID" />
+                    <button type="submit" class="framed">
+                        <img class="product-card-img" src="data:image/jpg;base64,@System.Convert.ToBase64String(request.House.HousePhoto)" />
+                    </button>
+                </div>
+            </div>
+            <div class="price-and-name">
+                <span class="price">Status: $@request.Status</span>
+            </div>
+            <div class="text-center">
+                <div class="price-and-name">
+                    <span class="name">@request.House.Address</span>
+                </div>
+                <div class="price-and-name">
+                    <span class="price">Rent: $@request.House.Rent</span>
+                </div>
+
+            </div>
+
+        </form>
+    }
+</div>
