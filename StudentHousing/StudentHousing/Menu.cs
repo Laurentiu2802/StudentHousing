@@ -2,10 +2,12 @@
 using Logic.Entities;
 using Logic.Enums;
 using Logic.Managers;
+using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -34,7 +36,18 @@ namespace StudentHousing
             foreach (House house in houses)
             {
                 lbHouse.Items.Add(house);
+                lbHousesR.Items.Add(house);
             }
+            foreach (var item in Enum.GetValues(typeof(HouseType)))
+            {
+                cbHouseType.Items.Add(item);
+                cbHouseTypeR.Items.Add(item);
+            }
+            foreach (var item1 in Enum.GetValues(typeof(ContractType)))
+            {
+                cbContract.Items.Add(item1);
+            }
+
 
         }
 
@@ -47,8 +60,8 @@ namespace StudentHousing
             cbFurnished.SelectedIndex = -1;
             tbRent.Clear();
             tbSpace.Clear();
-            tbContractType.Clear();
-            tbHouseType.Clear();
+            cbContract.SelectedIndex = -1;
+            cbHouseType.SelectedIndex = -1;
         }
 
         public void RefreshHouseList()
@@ -58,21 +71,23 @@ namespace StudentHousing
             foreach (House house in houses)
             {
                 lbHouse.Items.Add(house);
+                lbHousesR.Items.Add(house);
             }
         }
 
         public void AddHouse()
         {
+
             if (cbFurnished.SelectedIndex == 1)
             {
-                House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace.Text), true, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
+                House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, (HouseType)cbHouseType.SelectedItem, Convert.ToInt32(tbSpace.Text), true, (ContractType)cbContract.SelectedItem, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo, true);
                 houseManager.AddHouse(house.HouseToHouseDTO());
                 RefreshHouseList();
                 ClearAllBoxes();
             }
             else if (cbFurnished.SelectedIndex == 2)
             {
-                House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace.Text), false, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
+                House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, (HouseType)cbHouseType.SelectedItem, Convert.ToInt32(tbSpace.Text), false, (ContractType)cbContract.SelectedItem, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo, true);
                 houseManager.AddHouse(house.HouseToHouseDTO());
                 RefreshHouseList();
                 ClearAllBoxes();
@@ -84,14 +99,14 @@ namespace StudentHousing
             House selectedHouse = lbHouse.SelectedItem as House;
             if (cbFurnished.SelectedIndex == 1)
             {
-                House house = new House(selectedHouse.HouseID,Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace.Text), true, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
+                House house = new House(selectedHouse.HouseID, Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, (HouseType)cbHouseType.SelectedItem, Convert.ToInt32(tbSpace.Text), true, (ContractType)cbContract.SelectedItem, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo, selectedHouse.Status);
                 houseManager.UpdateHouse(house.HouseToHouseDTO());
                 RefreshHouseList();
                 ClearAllBoxes();
             }
             else if (cbFurnished.SelectedIndex == 2)
             {
-                House house = new House(selectedHouse.HouseID,Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace.Text), false, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
+                House house = new House(selectedHouse.HouseID, Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, (HouseType)cbHouseType.SelectedItem, Convert.ToInt32(tbSpace.Text), false, (ContractType)cbContract.SelectedItem, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo, selectedHouse.Status);
                 houseManager.UpdateHouse(house.HouseToHouseDTO());
                 RefreshHouseList();
                 ClearAllBoxes();
@@ -148,23 +163,52 @@ namespace StudentHousing
             tbHouseNumber.Text = house.HouseNumber.ToString();
             tbAddress.Text = house.Address.ToString();
             tbCity.Text = house.City.ToString();
-            tbHouseType.Text = house.HouseType.ToString();
+            cbHouseType.SelectedItem = house.HouseType;
+            //tbHouseType.Text = house.HouseType.ToString();
             tbSpace.Text = house.Space.ToString();
-            if(house.Furnished == true)
+            if (house.Furnished == true)
             {
                 cbFurnished.SelectedIndex = 1;
             }
-            else if(house.Furnished == false)
+            else if (house.Furnished == false)
             {
                 cbFurnished.SelectedIndex = 2;
             }
             //cbFurnished.Text = house.Furnished.ToString();
-            tbContractType.Text = house.ContractType.ToString();
+            cbContract.SelectedItem = house.ContractType;
             tbRent.Text = house.Rent.ToString();
             tbDeposit.Text = house.Deposit.ToString();
             MemoryStream stmBLOBData = new MemoryStream(house.HousePhoto);
             houseImage.Image = Image.FromStream(stmBLOBData);
             photo = stmBLOBData.ToArray();
+        }
+
+        private void lbHousesR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            lbHousesR.Items.Clear();
+            HouseType houseType;
+            bool status = false;
+            houseType = (HouseType)cbHouseTypeR.SelectedItem;
+            if(cbHouseStatus.SelectedIndex == 0) 
+            {
+                status = true;
+            }
+            else if(cbHouseStatus.SelectedIndex == 1)
+            {
+                status = false;
+            }
+            
+            List<House> houses = new List<House>();
+            houses = houseManager.GetAllHousesByStatusAndType(status, Convert.ToInt32(houseType));
+            foreach(House house in houses)
+            {
+                lbHousesR.Items.Add(house);
+            }
         }
     }
 }

@@ -30,8 +30,8 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tbContractType = new TextBox();
-            tbHouseType = new TextBox();
+            cbContract = new ComboBox();
+            cbHouseType = new ComboBox();
             btnPhoto = new Button();
             cbFurnished = new ComboBox();
             btnEditHouse = new Button();
@@ -54,12 +54,22 @@
             tbHouseNumber = new TextBox();
             label1 = new Label();
             tabPage2 = new TabPage();
-            cbHouseRequest = new ComboBox();
+            label12 = new Label();
+            label11 = new Label();
+            cbHouseStatus = new ComboBox();
+            btnFilter = new Button();
+            panel1 = new Panel();
+            btnReject = new Button();
+            btnAccept = new Button();
+            lbRequests = new ListBox();
+            lbHousesR = new ListBox();
             label10 = new Label();
+            cbHouseTypeR = new ComboBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)houseImage).BeginInit();
             tabPage2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -74,8 +84,8 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(tbContractType);
-            tabPage1.Controls.Add(tbHouseType);
+            tabPage1.Controls.Add(cbContract);
+            tabPage1.Controls.Add(cbHouseType);
             tabPage1.Controls.Add(btnPhoto);
             tabPage1.Controls.Add(cbFurnished);
             tabPage1.Controls.Add(btnEditHouse);
@@ -106,19 +116,21 @@
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
             // 
-            // tbContractType
+            // cbContract
             // 
-            tbContractType.Location = new Point(145, 194);
-            tbContractType.Name = "tbContractType";
-            tbContractType.Size = new Size(121, 23);
-            tbContractType.TabIndex = 29;
+            cbContract.FormattingEnabled = true;
+            cbContract.Location = new Point(145, 194);
+            cbContract.Name = "cbContract";
+            cbContract.Size = new Size(121, 23);
+            cbContract.TabIndex = 31;
             // 
-            // tbHouseType
+            // cbHouseType
             // 
-            tbHouseType.Location = new Point(145, 107);
-            tbHouseType.Name = "tbHouseType";
-            tbHouseType.Size = new Size(121, 23);
-            tbHouseType.TabIndex = 28;
+            cbHouseType.FormattingEnabled = true;
+            cbHouseType.Location = new Point(145, 107);
+            cbHouseType.Name = "cbHouseType";
+            cbHouseType.Size = new Size(121, 23);
+            cbHouseType.TabIndex = 30;
             // 
             // btnPhoto
             // 
@@ -315,8 +327,14 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label12);
+            tabPage2.Controls.Add(label11);
+            tabPage2.Controls.Add(cbHouseStatus);
+            tabPage2.Controls.Add(btnFilter);
+            tabPage2.Controls.Add(panel1);
+            tabPage2.Controls.Add(lbHousesR);
             tabPage2.Controls.Add(label10);
-            tabPage2.Controls.Add(cbHouseRequest);
+            tabPage2.Controls.Add(cbHouseTypeR);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -325,23 +343,111 @@
             tabPage2.Text = "Applications Manager";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // cbHouseRequest
+            // label12
             // 
-            cbHouseRequest.FormattingEnabled = true;
-            cbHouseRequest.Location = new Point(6, 93);
-            cbHouseRequest.Name = "cbHouseRequest";
-            cbHouseRequest.Size = new Size(121, 23);
-            cbHouseRequest.TabIndex = 1;
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.Location = new Point(147, 48);
+            label12.Name = "label12";
+            label12.Size = new Size(95, 20);
+            label12.TabIndex = 8;
+            label12.Text = "House Status";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Location = new Point(24, 48);
+            label11.Name = "label11";
+            label11.Size = new Size(86, 20);
+            label11.TabIndex = 7;
+            label11.Text = "House Type";
+            // 
+            // cbHouseStatus
+            // 
+            cbHouseStatus.FormattingEnabled = true;
+            cbHouseStatus.Items.AddRange(new object[] { "Available", "Rented" });
+            cbHouseStatus.Location = new Point(133, 74);
+            cbHouseStatus.Name = "cbHouseStatus";
+            cbHouseStatus.Size = new Size(121, 23);
+            cbHouseStatus.TabIndex = 6;
+            // 
+            // btnFilter
+            // 
+            btnFilter.Location = new Point(269, 73);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(75, 23);
+            btnFilter.TabIndex = 5;
+            btnFilter.Text = "Filter";
+            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(btnReject);
+            panel1.Controls.Add(btnAccept);
+            panel1.Controls.Add(lbRequests);
+            panel1.Location = new Point(382, 6);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(380, 386);
+            panel1.TabIndex = 4;
+            // 
+            // btnReject
+            // 
+            btnReject.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnReject.Location = new Point(210, 315);
+            btnReject.Name = "btnReject";
+            btnReject.Size = new Size(128, 42);
+            btnReject.TabIndex = 4;
+            btnReject.Text = "Reject";
+            btnReject.UseVisualStyleBackColor = true;
+            // 
+            // btnAccept
+            // 
+            btnAccept.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAccept.Location = new Point(45, 315);
+            btnAccept.Name = "btnAccept";
+            btnAccept.Size = new Size(128, 42);
+            btnAccept.TabIndex = 3;
+            btnAccept.Text = "Accept";
+            btnAccept.UseVisualStyleBackColor = true;
+            // 
+            // lbRequests
+            // 
+            lbRequests.FormattingEnabled = true;
+            lbRequests.ItemHeight = 15;
+            lbRequests.Location = new Point(15, 39);
+            lbRequests.Name = "lbRequests";
+            lbRequests.Size = new Size(354, 259);
+            lbRequests.TabIndex = 0;
+            // 
+            // lbHousesR
+            // 
+            lbHousesR.FormattingEnabled = true;
+            lbHousesR.ItemHeight = 15;
+            lbHousesR.Location = new Point(6, 103);
+            lbHousesR.Name = "lbHousesR";
+            lbHousesR.Size = new Size(348, 289);
+            lbHousesR.TabIndex = 3;
+            lbHousesR.SelectedIndexChanged += lbHousesR_SelectedIndexChanged;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(6, 51);
+            label10.Location = new Point(6, 22);
             label10.Name = "label10";
             label10.Size = new Size(267, 20);
             label10.TabIndex = 2;
             label10.Text = "Select a house to manage the requests:";
+            // 
+            // cbHouseTypeR
+            // 
+            cbHouseTypeR.FormattingEnabled = true;
+            cbHouseTypeR.Location = new Point(6, 74);
+            cbHouseTypeR.Name = "cbHouseTypeR";
+            cbHouseTypeR.Size = new Size(121, 23);
+            cbHouseTypeR.TabIndex = 1;
             // 
             // Menu
             // 
@@ -357,6 +463,7 @@
             ((System.ComponentModel.ISupportInitialize)houseImage).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -386,9 +493,18 @@
         private PictureBox houseImage;
         private ComboBox cbFurnished;
         private Button btnPhoto;
-        private TextBox tbContractType;
-        private TextBox tbHouseType;
         private Label label10;
-        private ComboBox cbHouseRequest;
+        private ComboBox cbHouseTypeR;
+        private ListBox lbHousesR;
+        private ComboBox cbHouseType;
+        private ComboBox cbContract;
+        private Panel panel1;
+        private Label label12;
+        private Label label11;
+        private ComboBox cbHouseStatus;
+        private Button btnFilter;
+        private Button btnReject;
+        private Button btnAccept;
+        private ListBox lbRequests;
     }
 }

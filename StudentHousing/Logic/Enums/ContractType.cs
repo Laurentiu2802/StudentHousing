@@ -9,7 +9,7 @@ namespace Logic.Enums
     public enum ContractType
     {
         SixMonths,
-        Twelvemonths,
+        OneYear,
         Indefinite
     }
 }

@@ -18,8 +18,8 @@ namespace DataAcces
             {
                 using (SqlConnection conn = InitializeConection())
                 {
-                    const string sql = "INSERT INTO s2_House ([houseNumber], [address], [city], [houseType], [space], [furnished], [contractType], [rent], [deposit], [housePhoto],[furnishing])" +
-                        "VALUES (@houseNumber, @address, @city, @houseType, @space, @furnished, @contractType, @rent, @deposit, @housePhoto,@furnished);";
+                    const string sql = "INSERT INTO s2_House ([houseNumber], [address], [city], [houseType], [space], [furnished], [contractType], [rent], [deposit], [housePhoto],[furnishing],[status])" +
+                        "VALUES (@houseNumber, @address, @city, @houseType, @space, @furnished, @contractType, @rent, @deposit, @housePhoto,@furnished,@status);";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("houseNumber", houseDTO.HouseNumber);
                     cmd.Parameters.AddWithValue("address", houseDTO.Address);
@@ -31,6 +31,7 @@ namespace DataAcces
                     cmd.Parameters.AddWithValue("rent", houseDTO.Rent);
                     cmd.Parameters.AddWithValue("deposit", houseDTO.Deposit);
                     cmd.Parameters.AddWithValue("housePhoto", houseDTO.HousePhoto);
+                    cmd.Parameters.AddWithValue("status", 1);
                     conn.Open();
                     cmd.ExecuteNonQuery();
 
@@ -63,13 +64,14 @@ namespace DataAcces
                             HouseNumber = Convert.ToInt32(dr["houseNumber"]),
                             Address = dr["address"].ToString(),
                             City = dr["city"].ToString(),
-                            HouseType = dr["houseType"].ToString(),
+                            HouseType = Convert.ToInt32(dr["houseType"]),
                             Space = Convert.ToInt32(dr["space"]),
                             Furnished = Convert.ToBoolean(dr["furnishing"]),
-                            ContractType = dr["contractType"].ToString(),
+                            ContractType = Convert.ToInt32(dr["contractType"]),
                             Rent = Convert.ToDouble(dr["rent"]),
                             Deposit = Convert.ToDouble(dr["deposit"]),
-                            HousePhoto = (byte[])dr["housePhoto"]
+                            HousePhoto = (byte[])dr["housePhoto"],
+                            Status = Convert.ToBoolean(dr["status"])
                         };
 
                         return houseDTO;
@@ -104,13 +106,14 @@ namespace DataAcces
                             HouseNumber = Convert.ToInt32(dr["houseNumber"]),
                             Address = dr["address"].ToString(),
                             City = dr["city"].ToString(),
-                            HouseType = dr["houseType"].ToString(),
+                            HouseType = Convert.ToInt32(dr["houseType"]),
                             Space = Convert.ToInt32(dr["space"]),
                             Furnished = Convert.ToBoolean(dr["furnished"]),
-                            ContractType = dr["contractType"].ToString(),
+                            ContractType = Convert.ToInt32(dr["contractType"]),
                             Rent = Convert.ToDouble(dr["rent"]),
                             Deposit = Convert.ToDouble(dr["deposit"]),
-                            HousePhoto = (byte[])dr["housePhoto"]
+                            HousePhoto = (byte[])dr["housePhoto"],
+                            Status = Convert.ToBoolean(dr["status"])
                         };
                         houseList.Add(houseDTO);
                     }
@@ -147,13 +150,59 @@ namespace DataAcces
                             HouseNumber = Convert.ToInt32(dr["houseNumber"]),
                             Address = dr["address"].ToString(),
                             City = dr["city"].ToString(),
-                            HouseType = dr["houseType"].ToString(),
+                            HouseType = Convert.ToInt32(dr["houseType"]),
                             Space = Convert.ToInt32(dr["space"]),
                             Furnished = Convert.ToBoolean(dr["furnished"]),
-                            ContractType = dr["contractType"].ToString(),
+                            ContractType = Convert.ToInt32(dr["contractType"]),
                             Rent = Convert.ToDouble(dr["rent"]),
                             Deposit = Convert.ToDouble(dr["deposit"]),
-                            HousePhoto = (byte[])dr["housePhoto"]
+                            HousePhoto = (byte[])dr["housePhoto"],
+                            Status = Convert.ToBoolean(dr["status"])
+                        };
+                        houseList.Add(houseDTO);
+                    }
+                    return houseList;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public List<HouseDTO> GetAllHousesByStatusAndType(bool Status, int HouseType)
+        {
+            List<HouseDTO> houseList = new List<HouseDTO>();
+
+            try
+            {
+                using (SqlConnection conn = InitializeConection())
+                {
+                    string sql = "SELECT * FROM s2_House WHERE status = @status AND houseType = @houseType";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("@status", Status);
+                    cmd.Parameters.AddWithValue("@houseType", HouseType);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        var houseDTO = new HouseDTO
+                        {
+                            HouseID = Convert.ToInt32(dr["houseID"]),
+                            HouseNumber = Convert.ToInt32(dr["houseNumber"]),
+                            Address = dr["address"].ToString(),
+                            City = dr["city"].ToString(),
+                            HouseType = Convert.ToInt32(dr["houseType"]),
+                            Space = Convert.ToInt32(dr["space"]),
+                            Furnished = Convert.ToBoolean(dr["furnished"]),
+                            ContractType = Convert.ToInt32(dr["contractType"]),
+                            Rent = Convert.ToDouble(dr["rent"]),
+                            Deposit = Convert.ToDouble(dr["deposit"]),
+                            HousePhoto = (byte[])dr["housePhoto"],
+                            Status = Convert.ToBoolean(dr["status"])
                         };
                         houseList.Add(houseDTO);
                     }

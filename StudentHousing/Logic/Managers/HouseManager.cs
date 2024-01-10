@@ -58,6 +58,16 @@ namespace Logic.Managers
             return houses;
         }
 
+        public List<House> GetAllHousesByStatusAndType(bool Status, int HouseType)
+        {
+            List<House> houses = new List<House>();
+            foreach(HouseDTO houseDTO in houseRepository.GetAllHousesByStatusAndType(Status, HouseType))
+            {
+                houses.Add(new House(houseDTO));
+            }
+            return houses;
+        }
+
         public bool UpdateHouse(HouseDTO houseDTO)
         {
             return houseRepository.UpdateHouse(houseDTO);
