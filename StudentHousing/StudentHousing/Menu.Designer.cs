@@ -387,9 +387,9 @@
             panel1.Controls.Add(btnReject);
             panel1.Controls.Add(btnAccept);
             panel1.Controls.Add(lbRequests);
-            panel1.Location = new Point(382, 6);
+            panel1.Location = new Point(350, 6);
             panel1.Name = "panel1";
-            panel1.Size = new Size(380, 386);
+            panel1.Size = new Size(412, 386);
             panel1.TabIndex = 4;
             // 
             // btnReject
@@ -411,15 +411,17 @@
             btnAccept.TabIndex = 3;
             btnAccept.Text = "Accept";
             btnAccept.UseVisualStyleBackColor = true;
+            btnAccept.Click += btnAccept_Click;
             // 
             // lbRequests
             // 
             lbRequests.FormattingEnabled = true;
             lbRequests.ItemHeight = 15;
-            lbRequests.Location = new Point(15, 39);
+            lbRequests.Location = new Point(11, 39);
             lbRequests.Name = "lbRequests";
-            lbRequests.Size = new Size(354, 259);
+            lbRequests.Size = new Size(398, 259);
             lbRequests.TabIndex = 0;
+            lbRequests.SelectedIndexChanged += lbRequests_SelectedIndexChanged;
             // 
             // lbHousesR
             // 
@@ -427,7 +429,7 @@
             lbHousesR.ItemHeight = 15;
             lbHousesR.Location = new Point(6, 103);
             lbHousesR.Name = "lbHousesR";
-            lbHousesR.Size = new Size(348, 289);
+            lbHousesR.Size = new Size(248, 289);
             lbHousesR.TabIndex = 3;
             lbHousesR.SelectedIndexChanged += lbHousesR_SelectedIndexChanged;
             // 

@@ -42,7 +42,7 @@ namespace WebApp.Pages
             }
         }
 
-        public IEnumerable<House> houses => houseManager.GetAllHouses();
+        public IEnumerable<House> houses => _houseManager.GetAllHouses();
 
     }
 }

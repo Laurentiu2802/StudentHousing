@@ -108,7 +108,7 @@ namespace DataAcces
             {
                 using (SqlConnection conn = InitializeConection())
                 {
-                    string sql = "SELECT * FROM s2_Request r INNER JOIN s2_Customer c ON r.personID = c.customerID INNER JOIN s2_House h ON r.houseID = h.houseID WHERE r.houseID = @houseID";
+                    string sql = "SELECT * FROM s2_Request r INNER JOIN s2_Customer c ON r.customerID = c.customerID INNER JOIN s2_Person p ON c.customerID = p.personID INNER JOIN s2_House h ON r.houseID = h.houseID WHERE r.houseID = @houseID";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@houseID", id);
                     conn.Open();
@@ -163,6 +163,28 @@ namespace DataAcces
             else
             {
                 return null;
+            }
+        }
+
+        public bool UpdateRequest(RequestDTO requestDTO)
+        {
+            try
+            {
+                using (SqlConnection conn = InitializeConection())
+                {
+                    string sql = "UPDATE s2_Request SET status = @status WHERE requestID = @requestID";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("requestID", requestDTO.RequestID);
+                    
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
             }
         }
     }

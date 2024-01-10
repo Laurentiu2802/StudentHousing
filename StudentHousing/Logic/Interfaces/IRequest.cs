@@ -12,5 +12,6 @@ namespace Logic.Interfaces
         public bool AddRequest(RequestDTO requestDTO);
         public List<RequestDTO> GetRequestsByCustomerID(int id);
         public List<RequestDTO> GetRequestsByHouseID(int id);
+        public bool UpdateRequest(RequestDTO requestDTO);
     }
 }

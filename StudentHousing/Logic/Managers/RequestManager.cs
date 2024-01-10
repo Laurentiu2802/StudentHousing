@@ -43,5 +43,10 @@ namespace Logic.Managers
             }
             return requestList;
         }
+
+        public bool UpdateRequest(RequestDTO requestDTO)
+        {
+            return request.UpdateRequest(requestDTO);
+        }
     }
 }

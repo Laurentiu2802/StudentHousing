@@ -21,18 +21,21 @@ namespace StudentHousing
     public partial class Menu : Form
     {
         private readonly HouseManager houseManager;
+        private readonly RequestManager requestManager;
         private byte[] photo;
 
         List<House> houses = new List<House>();
+        List<Request> requests = new List<Request>();
 
         public Menu()
         {
             InitializeComponent();
 
             houseManager = new HouseManager(new HouseRepository());
+            requestManager = new RequestManager(new RequestRepository());
 
             houses = houseManager.GetAllHouses();
-
+            panel1.Hide();
             foreach (House house in houses)
             {
                 lbHouse.Items.Add(house);
@@ -185,7 +188,14 @@ namespace StudentHousing
 
         private void lbHousesR_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            panel1.Show();
+            lbRequests.Items.Clear();
+            House house = lbHousesR.SelectedItem as House;
+            requests = requestManager.GetRequestsByHouseID(house.HouseID);
+            foreach (Request request in requests)
+            {
+                lbRequests.Items.Add(request);
+            }
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
@@ -194,21 +204,35 @@ namespace StudentHousing
             HouseType houseType;
             bool status = false;
             houseType = (HouseType)cbHouseTypeR.SelectedItem;
-            if(cbHouseStatus.SelectedIndex == 0) 
+            if (cbHouseStatus.SelectedIndex == 0)
             {
                 status = true;
             }
-            else if(cbHouseStatus.SelectedIndex == 1)
+            else if (cbHouseStatus.SelectedIndex == 1)
             {
                 status = false;
             }
-            
+
             List<House> houses = new List<House>();
             houses = houseManager.GetAllHousesByStatusAndType(status, Convert.ToInt32(houseType));
-            foreach(House house in houses)
+            foreach (House house in houses)
             {
                 lbHousesR.Items.Add(house);
             }
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            Request request = lbRequests.SelectedItem as Request;
+            House house = request.House;
+            requestManager.UpdateRequest(request.RequestToRequestDTO());
+        }
+
+        private void lbRequests_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //House house = lbHousesR.SelectedItem as House;
+            Request request = lbRequests.SelectedItem as Request;
+            House house = request.House;
         }
     }
 }

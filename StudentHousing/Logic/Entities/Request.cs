@@ -3,6 +3,7 @@ using Logic.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,6 +35,21 @@ namespace Logic.Entities
             this.house = new House(requestDTO.HouseDTO);
             this.requestID = requestDTO.RequestID;
             this.status = (RequestStatus)requestDTO.Status;
+        }
+
+        public RequestDTO RequestToRequestDTO()
+        {
+            return new RequestDTO()
+            {
+                CustomerDTO = customer.CustomerToCustomerDTO(),
+                HouseDTO = house.HouseToHouseDTO(),
+                Status = Convert.ToInt32(this.Status)
+            };
+        }
+
+        public override string ToString()
+        {
+            return $"Address: {house.Address} {house.HouseNumber} Status: {status} Person: {customer.FirstName} {customer.LastName}";
         }
     }
 }
