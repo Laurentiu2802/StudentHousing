@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,7 +72,7 @@ namespace StudentHousing
             }
             else if (cbFurnished.SelectedIndex == 2)
             {
-                House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace), false, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
+                House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace.Text), false, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
                 houseManager.AddHouse(house.HouseToHouseDTO());
                 RefreshHouseList();
                 ClearAllBoxes();
@@ -80,17 +81,17 @@ namespace StudentHousing
 
         public void EditHouse()
         {
-
-            if (cbFurnished.SelectedIndex == 0)
+            House selectedHouse = lbHouse.SelectedItem as House;
+            if (cbFurnished.SelectedIndex == 1)
             {
-                House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace), true, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
+                House house = new House(selectedHouse.HouseID,Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace.Text), true, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
                 houseManager.UpdateHouse(house.HouseToHouseDTO());
                 RefreshHouseList();
                 ClearAllBoxes();
             }
-            else if (cbFurnished.SelectedIndex == 1)
+            else if (cbFurnished.SelectedIndex == 2)
             {
-                House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace), false, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
+                House house = new House(selectedHouse.HouseID,Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, tbHouseType.Text, Convert.ToInt32(tbSpace.Text), false, tbContractType.Text, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo);
                 houseManager.UpdateHouse(house.HouseToHouseDTO());
                 RefreshHouseList();
                 ClearAllBoxes();
@@ -149,11 +150,21 @@ namespace StudentHousing
             tbCity.Text = house.City.ToString();
             tbHouseType.Text = house.HouseType.ToString();
             tbSpace.Text = house.Space.ToString();
-            cbFurnished.Text = house.Furnished.ToString();
+            if(house.Furnished == true)
+            {
+                cbFurnished.SelectedIndex = 1;
+            }
+            else if(house.Furnished == false)
+            {
+                cbFurnished.SelectedIndex = 2;
+            }
+            //cbFurnished.Text = house.Furnished.ToString();
             tbContractType.Text = house.ContractType.ToString();
             tbRent.Text = house.Rent.ToString();
             tbDeposit.Text = house.Deposit.ToString();
-
+            MemoryStream stmBLOBData = new MemoryStream(house.HousePhoto);
+            houseImage.Image = Image.FromStream(stmBLOBData);
+            photo = stmBLOBData.ToArray();
         }
     }
 }

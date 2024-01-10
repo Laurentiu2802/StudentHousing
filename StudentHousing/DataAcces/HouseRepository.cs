@@ -173,8 +173,9 @@ namespace DataAcces
             {
                 using (SqlConnection conn = InitializeConection())
                 {
-                    string sql = "UPDATE s2_House SET houseNumber = @houseNumber, address = @address, city = @city, houseType = @houseType, space = @space, furnished = @furnished, contractType = @contractType, rent = @rent, deposit = @deposit, housePhoto = @housePhoto, areaName = @areaName WHERE houseID = houseID";
+                    string sql = "UPDATE s2_House SET houseNumber = @houseNumber, address = @address, city = @city, houseType = @houseType, space = @space, furnished = @furnished, contractType = @contractType, rent = @rent, deposit = @deposit, housePhoto = @housePhoto WHERE houseID = @houseID";
                     SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("houseID", houseDTO.HouseID);
                     cmd.Parameters.AddWithValue("houseNumber", houseDTO.HouseNumber);
                     cmd.Parameters.AddWithValue("address", houseDTO.Address);
                     cmd.Parameters.AddWithValue("city", houseDTO.City);

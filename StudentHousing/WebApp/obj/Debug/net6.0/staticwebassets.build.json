@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2EuAuhW6E+I1uKe/DlemsNYrMuuzem6WwOrX3zeiGIk=",
+  "Hash": "yiBOasn5RNfkFSdtQhaKdv2D1ivwBffQEyDYKCccvD4=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\WebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\WebApp.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\css\\MyAccount.css",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "css/MyAccount.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\MyAccount.css"
     },
     {
       "Identity": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\css\\site.css",

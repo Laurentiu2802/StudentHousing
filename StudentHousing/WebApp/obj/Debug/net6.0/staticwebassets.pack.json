@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\WebApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\css\\MyAccount.css",
+      "PackagePath": "staticwebassets\\css\\MyAccount.css"
+    },
+    {
       "Id": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

@@ -1,0 +1,55 @@
+﻿@page
+@using Logic.DTO;
+@using Logic.Entities;
+@using Logic.Managers;
+@model WebApp.Pages.MyAccountModel
+@{
+    ViewData["Title"] = "My account details";
+    <link href="~/css/MyAccount.css" rel="stylesheet" type="text/css" />
+}
+
+
+@if(Model.customerDTO != null)
+{
+    <div class="input-box">
+        <div class="input-tag">
+            First Name : @Model.customerDTO.FirstName
+        </div>
+    </div>
+
+    <div class="input-box">
+        <div class="input-tag">
+            Last Name : @Model.customerDTO.LastName
+        </div>
+    </div>
+
+    <div class="input-box">
+        <div class="input-tag">
+            Email : @Model.customerDTO.Email
+        </div>
+    </div>
+
+    <div class="input-box">
+        <div class="input-tag">
+            User Name : @Model.customerDTO.Username
+        </div>
+    </div>
+
+    <div class="input-box">
+        <div class="input-tag">
+            Address : @Model.customerDTO.Address
+        </div>
+    </div>
+
+    <div class="input-box">
+        <div class="input-tag">
+            City : @Model.customerDTO.City
+        </div>
+    </div>
+
+    <div class="input-box">
+        <div class="input-tag">
+            Country : @Model.customerDTO.Country
+        </div>
+    </div>
+}

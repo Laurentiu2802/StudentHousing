@@ -54,9 +54,12 @@
             tbHouseNumber = new TextBox();
             label1 = new Label();
             tabPage2 = new TabPage();
+            cbHouseRequest = new ComboBox();
+            label10 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)houseImage).BeginInit();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -312,6 +315,8 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label10);
+            tabPage2.Controls.Add(cbHouseRequest);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -319,6 +324,24 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Applications Manager";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cbHouseRequest
+            // 
+            cbHouseRequest.FormattingEnabled = true;
+            cbHouseRequest.Location = new Point(6, 93);
+            cbHouseRequest.Name = "cbHouseRequest";
+            cbHouseRequest.Size = new Size(121, 23);
+            cbHouseRequest.TabIndex = 1;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(6, 51);
+            label10.Name = "label10";
+            label10.Size = new Size(267, 20);
+            label10.TabIndex = 2;
+            label10.Text = "Select a house to manage the requests:";
             // 
             // Menu
             // 
@@ -332,6 +355,8 @@
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)houseImage).EndInit();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -363,5 +388,7 @@
         private Button btnPhoto;
         private TextBox tbContractType;
         private TextBox tbHouseType;
+        private Label label10;
+        private ComboBox cbHouseRequest;
     }
 }
