@@ -145,7 +145,8 @@ namespace DataAcces
                                 Deposit = Convert.ToDouble(dr["deposit"]),
                                 HousePhoto = (byte[])dr["housePhoto"]
                             },
-                            Status = Convert.ToInt32(dr["status"])
+                            Status = Convert.ToInt32(dr["status"]),
+                            RequestID = Convert.ToInt32(dr["requestID"])
                         };
                         requestList.Add(requestDTO);
                     }
@@ -175,6 +176,7 @@ namespace DataAcces
                     string sql = "UPDATE s2_Request SET status = @status WHERE requestID = @requestID";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("requestID", requestDTO.RequestID);
+                    cmd.Parameters.AddWithValue("status", requestDTO.Status);
                     
 
                     conn.Open();

@@ -43,7 +43,8 @@ namespace Logic.Entities
             {
                 CustomerDTO = customer.CustomerToCustomerDTO(),
                 HouseDTO = house.HouseToHouseDTO(),
-                Status = Convert.ToInt32(this.Status)
+                Status = Convert.ToInt32(this.Status),
+                RequestID = Convert.ToInt32(this.RequestID)
             };
         }
 

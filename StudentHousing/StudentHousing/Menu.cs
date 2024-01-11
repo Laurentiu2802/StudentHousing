@@ -167,7 +167,6 @@ namespace StudentHousing
             tbAddress.Text = house.Address.ToString();
             tbCity.Text = house.City.ToString();
             cbHouseType.SelectedItem = house.HouseType;
-            //tbHouseType.Text = house.HouseType.ToString();
             tbSpace.Text = house.Space.ToString();
             if (house.Furnished == true)
             {
@@ -177,7 +176,6 @@ namespace StudentHousing
             {
                 cbFurnished.SelectedIndex = 2;
             }
-            //cbFurnished.Text = house.Furnished.ToString();
             cbContract.SelectedItem = house.ContractType;
             tbRent.Text = house.Rent.ToString();
             tbDeposit.Text = house.Deposit.ToString();
@@ -225,12 +223,36 @@ namespace StudentHousing
         {
             Request request = lbRequests.SelectedItem as Request;
             House house = request.House;
+            request.Status = RequestStatus.Accepted;
             requestManager.UpdateRequest(request.RequestToRequestDTO());
+            //house.Status = false;
+            //houseManager.UpdateHouse(house.HouseToHouseDTO());
+            foreach(Request request1 in lbRequests.Items)
+            {
+                if(request1.RequestID != request.RequestID && request1.House.HouseID == request.House.HouseID)
+                {
+                    request1.Status = RequestStatus.Rejected;
+                    requestManager.UpdateRequest(request1.RequestToRequestDTO());
+                }
+            }
+            house.Status = false;
+            houseManager.UpdateHouse(house.HouseToHouseDTO());
+            RefreshRequestList();
+        }
+
+        public void RefreshRequestList()
+        {
+            lbRequests.Items.Clear();
+        }
+        public void RefreshFilters()
+        {
+            cbHouseStatus.SelectedIndex = -1;
+            cbHouseTypeR.SelectedIndex = -1;
+
         }
 
         private void lbRequests_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //House house = lbHousesR.SelectedItem as House;
             Request request = lbRequests.SelectedItem as Request;
             House house = request.House;
         }
