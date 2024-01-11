@@ -48,5 +48,15 @@ namespace Logic.Managers
         {
             return request.UpdateRequest(requestDTO);
         }
+
+        public List<Request> GetAllRequests()
+        {
+            List<Request> requestList = new List<Request>();
+            foreach (RequestDTO requestDTO in request.GetAllRequests())
+            {
+                requestList.Add(new Request(requestDTO));
+            }
+            return requestList;
+        }
     }
 }

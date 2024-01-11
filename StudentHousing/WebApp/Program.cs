@@ -32,6 +32,8 @@ builder.Services.AddSingleton<ICustomer, CustomerRepository>();
 builder.Services.AddScoped<RequestManager>();
 builder.Services.AddSingleton<IRequest, RequestRepository>();
 
+builder.Services.AddScoped<RecommendationManager>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

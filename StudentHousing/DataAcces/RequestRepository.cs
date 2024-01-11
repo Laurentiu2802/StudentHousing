@@ -167,6 +167,65 @@ namespace DataAcces
             }
         }
 
+        public List<RequestDTO> GetAllRequests()
+        {
+            List<RequestDTO> requestList = new List<RequestDTO>();
+
+            try
+            {
+                using (SqlConnection conn = InitializeConection())
+                {
+                    string sql = "SELECT * FROM s2_Request  r INNER JOIN s2_Customer c ON r.customerID = c.customerID INNER JOIN s2_Person p ON c.customerID = p.personID INNER JOIN s2_House h ON r.houseID = h.houseID";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    conn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        var requestDTO = new RequestDTO
+                        {
+                            CustomerDTO = new CustomerDTO
+                            {
+                                PersonID = Convert.ToInt32(dr["personID"]),
+                                Email = dr["email"].ToString(),
+                                Password = dr["password"].ToString(),
+                                IsEmployee = Convert.ToBoolean(dr["isEmployee"]),
+                                Username = dr["username"].ToString(),
+                                FirstName = dr["firstName"].ToString(),
+                                LastName = dr["lastName"].ToString(),
+                                Address = dr["address"].ToString(),
+                                City = dr["city"].ToString(),
+                                Country = dr["country"].ToString(),
+                            },
+                            HouseDTO = new HouseDTO
+                            {
+                                HouseID = Convert.ToInt32(dr["houseID"]),
+                                HouseNumber = Convert.ToInt32(dr["houseNumber"]),
+                                Address = dr["address"].ToString(),
+                                City = dr["city"].ToString(),
+                                HouseType = Convert.ToInt32(dr["houseType"]),
+                                Space = Convert.ToInt32(dr["space"]),
+                                Furnished = Convert.ToBoolean(dr["furnishing"]),
+                                ContractType = Convert.ToInt32(dr["contractType"]),
+                                Rent = Convert.ToDouble(dr["rent"]),
+                                Deposit = Convert.ToDouble(dr["deposit"]),
+                                HousePhoto = (byte[])dr["housePhoto"]
+                            },
+                            Status = Convert.ToInt32(dr["status"]),
+                            RequestID = Convert.ToInt32(dr["requestID"])
+                        };
+                        requestList.Add(requestDTO);
+                    }
+                    return requestList;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public bool UpdateRequest(RequestDTO requestDTO)
         {
             try

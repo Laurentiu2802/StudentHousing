@@ -13,5 +13,6 @@ namespace Logic.Interfaces
         public List<RequestDTO> GetRequestsByCustomerID(int id);
         public List<RequestDTO> GetRequestsByHouseID(int id);
         public bool UpdateRequest(RequestDTO requestDTO);
+        public List<RequestDTO> GetAllRequests();
     }
 }

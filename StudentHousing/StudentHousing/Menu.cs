@@ -222,22 +222,29 @@ namespace StudentHousing
         private void btnAccept_Click(object sender, EventArgs e)
         {
             Request request = lbRequests.SelectedItem as Request;
-            House house = request.House;
-            request.Status = RequestStatus.Accepted;
-            requestManager.UpdateRequest(request.RequestToRequestDTO());
-            //house.Status = false;
-            //houseManager.UpdateHouse(house.HouseToHouseDTO());
-            foreach (Request request1 in lbRequests.Items)
+            if(request.Status == RequestStatus.Pending)
             {
-                if (request1.RequestID != request.RequestID && request1.House.HouseID == request.House.HouseID)
+                House house = request.House;
+                request.Status = RequestStatus.Accepted;
+                requestManager.UpdateRequest(request.RequestToRequestDTO());
+                foreach (Request request1 in lbRequests.Items)
                 {
-                    request1.Status = RequestStatus.Rejected;
-                    requestManager.UpdateRequest(request1.RequestToRequestDTO());
+                    if (request1.RequestID != request.RequestID && request1.House.HouseID == request.House.HouseID)
+                    {
+                        request1.Status = RequestStatus.Rejected;
+                        requestManager.UpdateRequest(request1.RequestToRequestDTO());
+                    }
                 }
+                house.Status = false;
+                houseManager.UpdateHouse(house.HouseToHouseDTO());
+                RefreshRequestList();
+                lbRequests.SelectedIndex = -1;
             }
-            house.Status = false;
-            houseManager.UpdateHouse(house.HouseToHouseDTO());
-            RefreshRequestList();
+            else
+            {
+                MessageBox.Show("You can not change the person who is assigned to the house");
+            }
+            
         }
 
         public void RefreshRequestList()
@@ -259,7 +266,11 @@ namespace StudentHousing
 
         private void btnReject_Click(object sender, EventArgs e)
         {
-            
+            Request request = lbRequests.SelectedItem as Request;
+            House house = request.House;
+            request.Status = RequestStatus.Rejected;
+            requestManager.UpdateRequest(request.RequestToRequestDTO());
+            lbRequests.SelectedIndex = -1;
         }
     }
 }
