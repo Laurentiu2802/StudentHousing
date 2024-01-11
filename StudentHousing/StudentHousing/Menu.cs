@@ -227,9 +227,9 @@ namespace StudentHousing
             requestManager.UpdateRequest(request.RequestToRequestDTO());
             //house.Status = false;
             //houseManager.UpdateHouse(house.HouseToHouseDTO());
-            foreach(Request request1 in lbRequests.Items)
+            foreach (Request request1 in lbRequests.Items)
             {
-                if(request1.RequestID != request.RequestID && request1.House.HouseID == request.House.HouseID)
+                if (request1.RequestID != request.RequestID && request1.House.HouseID == request.House.HouseID)
                 {
                     request1.Status = RequestStatus.Rejected;
                     requestManager.UpdateRequest(request1.RequestToRequestDTO());
@@ -255,6 +255,11 @@ namespace StudentHousing
         {
             Request request = lbRequests.SelectedItem as Request;
             House house = request.House;
+        }
+
+        private void btnReject_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

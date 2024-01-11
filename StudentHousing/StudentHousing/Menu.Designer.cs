@@ -401,6 +401,7 @@
             btnReject.TabIndex = 4;
             btnReject.Text = "Reject";
             btnReject.UseVisualStyleBackColor = true;
+            btnReject.Click += btnReject_Click;
             // 
             // btnAccept
             // 
