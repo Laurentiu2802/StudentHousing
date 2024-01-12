@@ -17,15 +17,15 @@
             <h6 class="houseType">House Type: @Model.HouseDTO.HouseType</h6>
             <h6 class="space">Space: @Model.HouseDTO.Space</h6>
             <h6 class="furnished">Furnished: @(Model.HouseDTO.Furnished ? "Yes" : "No")</h6>
-            @if (Model.HouseDTO.HouseType == 0)
+            @if (Model.HouseDTO.ContractType == 0)
             {
                 <h6 class="contract">Contract Type: 6 Months</h6>
             }
-            else if (Model.HouseDTO.HouseType == 1)
+            else if (Model.HouseDTO.ContractType == 1)
             {
                 <h6 class="contract">Contract Type: 1 Year</h6>
             }
-            else if (Model.HouseDTO.HouseType == 2)
+            else if (Model.HouseDTO.ContractType == 2)
             {
                 <h6 class="contract">Contract Type: Indefinite</h6>
             }
