@@ -23,6 +23,7 @@ namespace StudentHousing
         private readonly HouseManager houseManager;
         private readonly RequestManager requestManager;
         private byte[] photo;
+        private string validationErrorMessage;
 
         List<House> houses = new List<House>();
         List<Request> requests = new List<Request>();
@@ -80,20 +81,26 @@ namespace StudentHousing
 
         public void AddHouse()
         {
-
-            if (cbFurnished.SelectedIndex == 1)
+            if (ValidateHouseInput())
             {
-                House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, (HouseType)cbHouseType.SelectedItem, Convert.ToInt32(tbSpace.Text), true, (ContractType)cbContract.SelectedItem, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo, true);
-                houseManager.AddHouse(house.HouseToHouseDTO());
-                RefreshHouseList();
-                ClearAllBoxes();
+                if (cbFurnished.SelectedIndex == 1)
+                {
+                    House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, (HouseType)cbHouseType.SelectedItem, Convert.ToInt32(tbSpace.Text), true, (ContractType)cbContract.SelectedItem, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo, true);
+                    houseManager.AddHouse(house.HouseToHouseDTO());
+                    RefreshHouseList();
+                    ClearAllBoxes();
+                }
+                else if (cbFurnished.SelectedIndex == 2)
+                {
+                    House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, (HouseType)cbHouseType.SelectedItem, Convert.ToInt32(tbSpace.Text), false, (ContractType)cbContract.SelectedItem, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo, true);
+                    houseManager.AddHouse(house.HouseToHouseDTO());
+                    RefreshHouseList();
+                    ClearAllBoxes();
+                }
             }
-            else if (cbFurnished.SelectedIndex == 2)
+            else
             {
-                House house = new House(Convert.ToInt32(tbHouseNumber.Text), tbAddress.Text, tbCity.Text, (HouseType)cbHouseType.SelectedItem, Convert.ToInt32(tbSpace.Text), false, (ContractType)cbContract.SelectedItem, Convert.ToInt32(tbRent.Text), Convert.ToInt32(tbDeposit.Text), photo, true);
-                houseManager.AddHouse(house.HouseToHouseDTO());
-                RefreshHouseList();
-                ClearAllBoxes();
+                DisplayValidationErrors();
             }
         }
 
@@ -271,6 +278,45 @@ namespace StudentHousing
             request.Status = RequestStatus.Rejected;
             requestManager.UpdateRequest(request.RequestToRequestDTO());
             lbRequests.SelectedIndex = -1;
+        }
+
+        private bool ValidateHouseInput()
+        {
+            validationErrorMessage = "";
+
+            if (!int.TryParse(tbHouseNumber.Text, out int houseNumber) || houseNumber <= 0)
+            {
+                validationErrorMessage = "Please enter a valid house number.";
+                return false;
+            }
+
+            if (!int.TryParse(tbSpace.Text, out int space) || space <= 0)
+            {
+                validationErrorMessage = "Please enter a valid space value.";
+                return false;
+            }
+
+            if (!double.TryParse(tbRent.Text, out double rent) || rent <= 0)
+            {
+                validationErrorMessage = "Please enter a valid rent value.";
+                return false;
+            }
+
+            if (!double.TryParse(tbDeposit.Text, out double deposit) || deposit <= 0)
+            {
+                validationErrorMessage = "Please enter a valid deposit value.";
+                return false;
+            }
+
+            return true; 
+        }
+
+        private void DisplayValidationErrors()
+        {
+            if (!string.IsNullOrEmpty(validationErrorMessage))
+            {
+                MessageBox.Show(validationErrorMessage, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

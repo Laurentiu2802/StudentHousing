@@ -44,5 +44,6 @@ namespace WebApp.Pages
 
         public IEnumerable<House> houses => _houseManager.GetAllHouses();
 
+
     }
 }

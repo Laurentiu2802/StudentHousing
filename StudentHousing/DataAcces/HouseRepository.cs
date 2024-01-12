@@ -127,49 +127,7 @@ namespace DataAcces
             }
         }
 
-        public List<HouseDTO> GetAllHousesByID(int id)
-        {
-            List<HouseDTO> houseList = new List<HouseDTO>();
-
-            try
-            {
-                using (SqlConnection conn = InitializeConection())
-                {
-                    string sql = "SELECT * FROM s2_House WHERE houseID = @houseID";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    conn.Open();
-                    cmd.Parameters.AddWithValue("@houseID", id);
-
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    while (dr.Read())
-                    {
-                        var houseDTO = new HouseDTO
-                        {
-                            HouseID = Convert.ToInt32(dr["houseID"]),
-                            HouseNumber = Convert.ToInt32(dr["houseNumber"]),
-                            Address = dr["address"].ToString(),
-                            City = dr["city"].ToString(),
-                            HouseType = Convert.ToInt32(dr["houseType"]),
-                            Space = Convert.ToInt32(dr["space"]),
-                            Furnished = Convert.ToBoolean(dr["furnished"]),
-                            ContractType = Convert.ToInt32(dr["contractType"]),
-                            Rent = Convert.ToDouble(dr["rent"]),
-                            Deposit = Convert.ToDouble(dr["deposit"]),
-                            HousePhoto = (byte[])dr["housePhoto"],
-                            Status = Convert.ToBoolean(dr["status"])
-                        };
-                        houseList.Add(houseDTO);
-                    }
-                    return houseList;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-            }
-        }
+    
 
         public List<HouseDTO> GetAllHousesByStatusAndType(bool Status, int HouseType)
         {
@@ -222,7 +180,7 @@ namespace DataAcces
             {
                 using (SqlConnection conn = InitializeConection())
                 {
-                    string sql = "UPDATE s2_House SET houseNumber = @houseNumber, address = @address, city = @city, houseType = @houseType, space = @space, furnished = @furnished, contractType = @contractType, rent = @rent, deposit = @deposit, housePhoto = @housePhoto WHERE houseID = @houseID";
+                    string sql = "UPDATE s2_House SET houseNumber = @houseNumber, address = @address, city = @city, houseType = @houseType, space = @space, furnished = @furnished, contractType = @contractType, rent = @rent, deposit = @deposit, housePhoto = @housePhoto, status = @status WHERE houseID = @houseID";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("houseID", houseDTO.HouseID);
                     cmd.Parameters.AddWithValue("houseNumber", houseDTO.HouseNumber);
@@ -235,6 +193,7 @@ namespace DataAcces
                     cmd.Parameters.AddWithValue("rent", houseDTO.Rent);
                     cmd.Parameters.AddWithValue("deposit", houseDTO.Deposit);
                     cmd.Parameters.AddWithValue("housePhoto", houseDTO.HousePhoto);
+                    cmd.Parameters.AddWithValue("status", houseDTO.Status);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

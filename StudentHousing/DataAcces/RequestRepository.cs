@@ -36,7 +36,7 @@ namespace DataAcces
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                throw new RequestExceptions("Adding the request failed");
             }
         }
 
@@ -94,7 +94,7 @@ namespace DataAcces
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                throw new RequestExceptions("Retrieving the requests failed", ex);
             }
 
         }
@@ -156,6 +156,8 @@ namespace DataAcces
             catch (Exception ex)
             {
                 passed = false;
+                throw new RequestExceptions("Retrieving the requests failed", ex);
+
             }
             if (passed = true)
             {
@@ -164,6 +166,7 @@ namespace DataAcces
             else
             {
                 return null;
+                throw new RequestExceptions("Retrieving the requests failed");
             }
         }
 
@@ -222,7 +225,7 @@ namespace DataAcces
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                throw new RequestExceptions("Retrieving all the requests failed");
             }
         }
 
@@ -245,7 +248,7 @@ namespace DataAcces
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                throw new RequestExceptions("Updating the request failed");
             }
         }
     }

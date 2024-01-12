@@ -24,6 +24,7 @@ namespace Logic.Entities
         private bool status;
 
         public int HouseID { get => houseID; set => houseID = value; }
+
         public int HouseNumber { get => houseNumber; set => houseNumber = value; }
         public string Address { get => address; set => address = value; }
         public string City { get => city; set => city = value; }

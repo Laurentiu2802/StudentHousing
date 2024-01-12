@@ -14,18 +14,31 @@ namespace StudentHousing
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            var id = customerManager.GetIDByCredentials(tbUserName.Text, tbPassword.Text).PersonID;
-
-            if (id > -1)
+            if (tbUserName.Text == string.Empty)
             {
-                Menu menu = new Menu();
-                menu.Show();
-                this.Hide();
+                MessageBox.Show("You have to provide an email");
+
+            }
+            else if (tbPassword.Text == string.Empty)
+            {
+                MessageBox.Show("You have provide the password");
+
             }
             else
             {
-                MessageBox.Show("You have introduced the wrong credentials");
+                var id = customerManager.GetIDByCredentials(tbUserName.Text, tbPassword.Text).PersonID;
+                if (id > -1)
+                {
+                    Menu menu = new Menu();
+                    menu.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("You have introduced the wrong credentials");
+                }
             }
+            
         }
     }
 }

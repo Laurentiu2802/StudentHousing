@@ -9,7 +9,7 @@ namespace DataAcces
 {
     public class Connection
     {
-        string conection = "Server=mssqlstud.fhict.local;Database=dbi478560;User Id=dbi478560;Password=1234;Encrypt=false;";
+       private string conection = "Server=mssqlstud.fhict.local;Database=dbi478560;User Id=dbi478560;Password=1234;Encrypt=false;";
 
         public SqlConnection InitializeConection()
         {

@@ -26,6 +26,7 @@ namespace Logic.Managers
 
         public List<Request> GetRequestsByCustomerID(int id)
         {
+            
             List<Request> requestList= new List<Request>();
             foreach (RequestDTO requestDTO in request.GetRequestsByCustomerID(id))
             {

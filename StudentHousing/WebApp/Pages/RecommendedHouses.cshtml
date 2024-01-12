@@ -11,24 +11,28 @@
 
     @foreach (House house in Model.recommendedHouses)
     {
-        <form method="post">
-            <div class="product-card">
-                <div class="product-card-img">
-                    <input asp-for="house.HouseID" type="hidden" value="@house.HouseID" />
-                    <button type="submit" class="framed">
-                        <img class="product-card-img" src="data:image/jpg;base64,@System.Convert.ToBase64String(house.HousePhoto)" />
-                    </button>
-                </div>
-                <div class="text-center">
-                    <div class="price-and-name">
-                        <span class="name">@house.Address</span>
+        @if (house.Status == true)
+        {
+            <form method="post">
+                <div class="product-card">
+                    <div class="product-card-img">
+                        <input asp-for="house.HouseID" type="hidden" value="@house.HouseID" />
+                        <button type="submit" class="framed">
+                            <img class="product-card-img" src="data:image/jpg;base64,@System.Convert.ToBase64String(house.HousePhoto)" />
+                        </button>
                     </div>
-                    <div class="price-and-name">
-                        <span class="price">Rent: $@house.Rent</span>
-                    </div>
+                    <div class="text-center">
+                        <div class="price-and-name">
+                            <span class="name">@house.Address</span>
+                        </div>
+                        <div class="price-and-name">
+                            <span class="price">Rent: $@house.Rent</span>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        }
+        
     }
 </div>
