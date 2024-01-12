@@ -3,27 +3,43 @@
 @using Logic.Entities;
 @using Logic.Interfaces;
 @using Logic.Managers
+@using Logic.Enums;
 @model WebApp.Pages.HouseDetailsModel
 @{
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
 
 
     <div class="HousePageForm">
-    <form method="post">
-        <h2 class="Address">@Model.HouseDTO.Address</h2>
-        <img class="house-card-img" src="data:image/jpg;base64,@System.Convert.ToBase64String(@Model.HouseDTO.HousePhoto)" />
-        <h6 class="city">City: @Model.HouseDTO.City</h6>
-        <h6 class="houseType">House Type: @Model.HouseDTO.HouseType</h6>
-        <h6 class="space">Space: @Model.HouseDTO.Space</h6>
-        <h6 class="furnished">Furnished: @(Model.HouseDTO.Furnished ? "Yes" : "No")</h6>
-        <h6 class="contract">Contract Type: @Model.HouseDTO.ContractType</h6>
-        <h6 class="rent">Rent : @Model.HouseDTO.Rent</h6>
-        <h6 class="deposit">Deposit: @Model.HouseDTO.Deposit</h6>
-        <div class="text-center">
-            <button type="submit">Apply</button>
-            <input asp-for="HouseDTO.HouseID" type="hidden" value="@Model.HouseDTO.HouseID" />
+        <form method="post">
+            <h2 class="Address">@Model.HouseDTO.Address</h2>
+            <img class="house-card-img" src="data:image/jpg;base64,@System.Convert.ToBase64String(@Model.HouseDTO.HousePhoto)" />
+            <h6 class="city">City: @Model.HouseDTO.City</h6>
+            <h6 class="houseType">House Type: @Model.HouseDTO.HouseType</h6>
+            <h6 class="space">Space: @Model.HouseDTO.Space</h6>
+            <h6 class="furnished">Furnished: @(Model.HouseDTO.Furnished ? "Yes" : "No")</h6>
+            @if (Model.HouseDTO.HouseType == 0)
+            {
+                <h6 class="contract">Contract Type: 6 Months</h6>
+            }
+            else if (Model.HouseDTO.HouseType == 1)
+            {
+                <h6 class="contract">Contract Type: 1 Year</h6>
+            }
+            else if (Model.HouseDTO.HouseType == 2)
+            {
+                <h6 class="contract">Contract Type: Indefinite</h6>
+            }
+            <h6 class="contract">Contract Type: @Model.HouseDTO.ContractType</h6>
+            <h6 class="rent">Rent : @Model.HouseDTO.Rent</h6>
+            <h6 class="deposit">Deposit: @Model.HouseDTO.Deposit</h6>
+            @if (!Model.RequestedHouse)
+            {
+                <div class="text-center">
+                    <button type="submit">Apply</button>
+                    <input asp-for="HouseDTO.HouseID" type="hidden" value="@Model.HouseDTO.HouseID" />
+                </div>
+            }
 
-        </div>
         </form>>
 
     </div>

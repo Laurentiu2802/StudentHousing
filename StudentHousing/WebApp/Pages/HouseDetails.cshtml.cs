@@ -14,10 +14,15 @@ namespace WebApp.Pages
     {
         private HouseManager houseManager;
 
+        public List<Request> requests;
         [BindProperty]
         public HouseDTO HouseDTO { get; set; }
         [BindProperty]
         CustomerDTO CustomerDTO { get; set; }
+        [BindProperty]
+        public bool RequestedHouse { get; set; }
+
+
 
         private readonly HouseManager _houseManager;
         private readonly CustomerManager customerManager;
@@ -34,10 +39,19 @@ namespace WebApp.Pages
         {
             HouseDTO = _houseManager.GetHouseByID(HttpContext.Session.GetInt32("houseID").Value).HouseToHouseDTO();
             string? id = User?.FindFirst("personID")?.Value;
-
-            if(id == null)
+            CustomerDTO = customerManager.GetCustomerByID(Convert.ToInt32(id)).CustomerToCustomerDTO();
+            requests = requestManager.GetRequestsByCustomerID(CustomerDTO.PersonID);
+            if (id == null)
             {
                 CustomerDTO = customerManager.GetCustomerByID(Convert.ToInt32("personID")).CustomerToCustomerDTO();
+            }
+            foreach (Request request in requests)
+            {
+                if (request.House.HouseID == HouseDTO.HouseID)
+                {
+                    RequestedHouse = true;
+                    break;
+                }
             }
 
         }
@@ -48,6 +62,8 @@ namespace WebApp.Pages
 
             CustomerDTO = customerManager.GetCustomerByID(Convert.ToInt32(customerID)).CustomerToCustomerDTO();
             HouseDTO = _houseManager.GetHouseByID(HttpContext.Session.GetInt32("houseID").Value).HouseToHouseDTO();
+            requests = requestManager.GetRequestsByCustomerID(CustomerDTO.PersonID);
+
             requestManager.AddRequest(new RequestDTO
             {
                 CustomerDTO = CustomerDTO,
