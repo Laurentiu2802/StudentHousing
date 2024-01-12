@@ -45,7 +45,7 @@ namespace WebApp.Pages
             try
             {
                 CustomerForm = customerManager.GetIDByCredentials(CustomerForm.Email, CustomerForm.Password).CustomerToCustomerDTO();
-                if (CustomerForm != null && ModelState.IsValid)
+                if (CustomerForm != null)
                 {
                     HttpContext.Session.SetInt32("personID", CustomerForm.PersonID);
 

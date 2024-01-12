@@ -8,6 +8,7 @@
     <link href="~/css/MyAccount.css" rel="stylesheet" type="text/css" />
 }
 
+<form method="post">
 
 @if(Model.customerDTO != null)
 {
@@ -52,4 +53,9 @@
             Country : @Model.customerDTO.Country
         </div>
     </div>
+    <div class="form-footer">
+        <a href="Index">Home Page</a>
+        <button type="submit" class="btn btn-primary">Log Out</button>
+    </div>
 }
+</form>
