@@ -10,52 +10,55 @@
 
 <form method="post">
 
-@if(Model.customerDTO != null)
-{
-    <div class="input-box">
-        <div class="input-tag">
-            First Name : @Model.customerDTO.FirstName
+    @if (Model.customerDTO != null)
+    {
+        <div class="input-box">
+            <div class="input-tag">
+                First Name : @Model.customerDTO.FirstName
+            </div>
         </div>
-    </div>
 
-    <div class="input-box">
-        <div class="input-tag">
-            Last Name : @Model.customerDTO.LastName
+        <div class="input-box">
+            <div class="input-tag">
+                Last Name : @Model.customerDTO.LastName
+            </div>
         </div>
-    </div>
 
-    <div class="input-box">
-        <div class="input-tag">
-            Email : @Model.customerDTO.Email
+        <div class="input-box">
+            <div class="input-tag">
+                Email : @Model.customerDTO.Email
+            </div>
         </div>
-    </div>
 
-    <div class="input-box">
-        <div class="input-tag">
-            User Name : @Model.customerDTO.Username
+        <div class="input-box">
+            <div class="input-tag">
+                User Name : @Model.customerDTO.Username
+            </div>
         </div>
-    </div>
 
-    <div class="input-box">
-        <div class="input-tag">
-            Address : @Model.customerDTO.Address
+        <div class="input-box">
+            <div class="input-tag">
+                Address : @Model.customerDTO.Address
+            </div>
         </div>
-    </div>
 
-    <div class="input-box">
-        <div class="input-tag">
-            City : @Model.customerDTO.City
+        <div class="input-box">
+            <div class="input-tag">
+                City : @Model.customerDTO.City
+            </div>
         </div>
-    </div>
 
-    <div class="input-box">
-        <div class="input-tag">
-            Country : @Model.customerDTO.Country
+        <div class="input-box">
+            <div class="input-tag">
+                Country : @Model.customerDTO.Country
+            </div>
         </div>
-    </div>
-    <div class="form-footer">
-        <a href="Index">Home Page</a>
-        <button type="submit" class="btn btn-primary">Log Out</button>
-    </div>
-}
+        <div class="form-footer">
+            <a href="Index">Home Page</a>
+            <button type="submit" class="btn btn-primary">Log Out</button>
+            <a href="/RecommendedHouses?name=ByChance">See recommended houses</a>
+        </div>
+       
+
+    }
 </form>

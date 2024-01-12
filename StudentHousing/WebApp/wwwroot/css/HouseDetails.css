@@ -1,0 +1,27 @@
+﻿body {
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+}
+.details{
+    margin: 20px;
+}
+.house-card-img{
+    width: 400px;
+    margin-right: 30px;
+}
+button {
+    border: none;
+    background-color: lightblue;
+    color: black;
+    margin: 10px;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 12px;    
+}
+button:hover{
+    background-color: blue;
+    color: white;
+}

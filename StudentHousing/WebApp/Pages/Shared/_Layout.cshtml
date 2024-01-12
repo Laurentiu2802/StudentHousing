@@ -24,38 +24,41 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <div class="text-end">
                             @if (!User.Identity.IsAuthenticated)
                             {
                                 <a class="nav-link text-dark" asp-area="" asp-page="/LogIn">Log In</a>
                             }
-
-                        </li>
-  @*                       <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Recommended_Houses?name=ByChance">Recommended Houses</a>
-                        </li> *@
+                        </div>
                         <li class="nav-item">
+                        <div class="text-end">
                             @if (!User.Identity.IsAuthenticated)
                             {
                                 <a class="nav-link text-dark" asp-area="" asp-page="/SignUp">Sign Up</a>
                             }
-                        </li>
-                         <li class="nav-item">
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                <a class="nav-link text-dark" asp-area="" asp-page="/MyApplications">My Applications</a>
-                            }
+                        </div>
                         </li>
                         <li class="nav-item">
+                        <div class="text-end">
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <a class="nav-link text-dark" asp-area="" asp-page="/MyAccount">My Account</a>
                             }
                         </li>
                         <li class="nav-item">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                <a class="nav-link text-dark" asp-area="" asp-page="/MyApplications">My Applications</a>
+                                }
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Houses">Houses</a>
                             
                         </li>
+                        @* <li class="nav-item">
+@*                             <a href="/RecommendedHouses?name=ByChance">See recommended books</a>
+                             <a class="nav-link text-dark" asp-area="" asp-page="/RecommendedHouses?name=ByChance">See recommended books</a>
+                        </li> *@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>

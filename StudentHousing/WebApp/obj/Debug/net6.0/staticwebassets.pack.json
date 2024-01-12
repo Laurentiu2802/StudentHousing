@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\WebApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\css\\HouseDetails.css",
+      "PackagePath": "staticwebassets\\css\\HouseDetails.css"
+    },
+    {
       "Id": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\css\\MyAccount.css",
       "PackagePath": "staticwebassets\\css\\MyAccount.css"
+    },
+    {
+      "Id": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\css\\request-css.css",
+      "PackagePath": "staticwebassets\\css\\request-css.css"
     },
     {
       "Id": "C:\\Users\\Laurentiu\\Desktop\\CCC\\semester-2-individual\\StudentHousing\\WebApp\\wwwroot\\css\\site.css",

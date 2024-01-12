@@ -1,0 +1,35 @@
+﻿.request-card {
+    padding-bottom: 100px;
+    text-align: center;
+}
+.request-card {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 300px;
+    height: 370px;
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    position: center;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.button-r{
+    text-align: center;
+    margin: auto;   
+    margin-bottom: 30px;
+    width: 300px;
+    border-radius: 12px;
+    background-color: lightblue;
+}
+.button-r a{
+    text-decoration: none;
+    color: black;
+}
+.button-r:hover{
+    cursor: pointer;
+    background-color: cadetblue;
+}
+.button-r a:hover{
+    color: white;
+}
